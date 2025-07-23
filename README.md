@@ -1,5 +1,3 @@
-# 👋 Hey, I'm Prayag!
-
 <a href="https://github.com/Prayag-09/Prayag-09">
   <picture>
     <img alt="Prayag's GitHub Profile README" src="./svgs/darkmode.svg">
