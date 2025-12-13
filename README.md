@@ -53,10 +53,10 @@ const techStack = {
 ## 🚀 Featured Projects
 
 <p align="center">
-  <a href="https://github.com/Prayag-09/OpsverseAI">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=Prayag-09&repo=OpsverseAI&theme=tokyonight&hide_border=true" />
+  <a href="https://github.com/prayagtushar/OpsverseAI">
+    <img src="https://github-readme-stats.vercel.app/api/pin/?username=prayagtushar&repo=OpsverseAI&theme=tokyonight&hide_border=true" />
   </a>
-  <a href="https://github.com/Prayag-09/XeonWallet">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=Prayag-09&repo=XeonWallet&theme=tokyonight&hide_border=true" />
+  <a href="https://github.com/prayagtushar/XeonWallet">
+    <img src="https://github-readme-stats.vercel.app/api/pin/?username=prayagtushar&repo=XeonWallet&theme=tokyonight&hide_border=true" />
   </a>
 </p>
