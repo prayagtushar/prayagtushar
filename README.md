@@ -1,37 +1,53 @@
 <div align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com?font=Gaegu&size=35&duration=2000&pause=998&color=F7F7F7&repeat=false&width=500&lines=Hello%2C+I'm+Prayag+Tushar" />
-    <source media="(prefers-color-scheme: light)" srcset="https://readme-typing-svg.demolab.com?font=Gaegu&size=35&duration=2000&pause=998&color=000000&repeat=false&width=500&lines=Hello%2C+I'm+Prayag+Tushar" />
-    <img alt="Typing SVG" src="https://readme-typing-svg.demolab.com?font=Gaegu&size=35&duration=2000&pause=998&color=F7F7F7&repeat=false&width=500&lines=Hello%2C+I'm+Prayag+Tushar" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com?font=Lexend&size=35&duration=2000&pause=998&color=F7F7F7&repeat=false&width=500&lines=Hello%2C+I'm+Prayag+Tushar" />
+    <source media="(prefers-color-scheme: light)" srcset="https://readme-typing-svg.demolab.com?font=Lexend&size=35&duration=2000&pause=998&color=000000&repeat=false&width=500&lines=Hello%2C+I'm+Prayag+Tushar" />
+    <img alt="Typing SVG" src="https://readme-typing-svg.demolab.com?font=Lexend&size=35&duration=2000&pause=998&color=F7F7F7&repeat=false&width=500&lines=Hello%2C+I'm+Prayag+Tushar" />
   </picture>
   <br/>
-  <img src="https://camo.githubusercontent.com/d972b3fdd96f5bcda3cb22db4be78c78db577b6a4aa58d779523cc1f598f1e8d/68747470733a2f2f63646e2e6472696262626c652e636f6d2f75736572732f3733303730332f73637265656e73686f74732f363538313234332f6176656e746f2e676966" width="200" height="150" style="min-height: 150px;" />
+  <img src="https://media.giphy.com/media/SWoSkN6DxTszqIKEqv/giphy.gif" alt="Coder GIF" width="200">
   <br/>
   <br/>
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com?font=Gaegu&size=18&duration=1000&pause=998&color=FFFFFF&repeat=false&width=600&height=25&lines=Software+Development+Engineer" />
-    <source media="(prefers-color-scheme: light)" srcset="https://readme-typing-svg.demolab.com?font=Gaegu&size=18&duration=1000&pause=998&color=000000&repeat=false&width=600&height=25&lines=Software+Development+Engineer" />
-    <img alt="Typing SVG" src="https://readme-typing-svg.demolab.com?font=Gaegu&size=18&duration=1000&pause=998&color=FFFFFF&repeat=false&width=600&height=25&lines=Software+Development+Engineer" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com?font=Lexend&size=18&duration=1000&pause=998&color=FFFFFF&repeat=false&width=600&height=25&lines=Software+Development+Engineer" />
+    <source media="(prefers-color-scheme: light)" srcset="https://readme-typing-svg.demolab.com?font=Lexend&size=18&duration=1000&pause=998&color=000000&repeat=false&width=600&height=25&lines=Software+Development+Engineer" />
+    <img alt="Typing SVG" src="https://readme-typing-svg.demolab.com?font=Lexend&size=18&duration=1000&pause=998&color=FFFFFF&repeat=false&width=600&height=25&lines=Software+Development+Engineer" />
   </picture>
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com?font=Gaegu&size=18&duration=1000&pause=998&color=FFFFFF&repeat=false&width=600&height=25&lines=Junior+SDE+%40+Metquay" />
-    <source media="(prefers-color-scheme: light)" srcset="https://readme-typing-svg.demolab.com?font=Gaegu&size=18&duration=1000&pause=998&color=000000&repeat=false&width=600&height=25&lines=Junior+SDE+%40+Metquay" />
-    <img alt="Typing SVG" src="https://readme-typing-svg.demolab.com?font=Gaegu&size=18&duration=1000&pause=998&color=FFFFFF&repeat=false&width=600&height=25&lines=Junior+SDE+%40+Metquay" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com?font=Lexend&size=18&duration=1000&pause=998&color=FFFFFF&repeat=false&width=600&height=25&lines=Junior+SDE+%40+Metquay" />
+    <source media="(prefers-color-scheme: light)" srcset="https://readme-typing-svg.demolab.com?font=Lexend&size=18&duration=1000&pause=998&color=000000&repeat=false&width=600&height=25&lines=Junior+SDE+%40+Metquay" />
+    <img alt="Typing SVG" src="https://readme-typing-svg.demolab.com?font=Lexend&size=18&duration=1000&pause=998&color=FFFFFF&repeat=false&width=600&height=25&lines=Junior+SDE+%40+Metquay" />
   </picture>
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com?font=Gaegu&size=18&duration=1000&pause=998&color=FFFFFF&repeat=false&width=600&height=25&lines=AWS+Certified+Cloud+Practitioner" />
-    <source media="(prefers-color-scheme: light)" srcset="https://readme-typing-svg.demolab.com?font=Gaegu&size=18&duration=1000&pause=998&color=000000&repeat=false&width=600&height=25&lines=AWS+Certified+Cloud+Practitioner" />
-    <img alt="Typing SVG" src="https://readme-typing-svg.demolab.com?font=Gaegu&size=18&duration=1000&pause=998&color=FFFFFF&repeat=false&width=600&height=25&lines=AWS+Certified+Cloud+Practitioner" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com?font=Lexend&size=18&duration=1000&pause=998&color=FFFFFF&repeat=false&width=600&height=25&lines=AWS+Certified+Cloud+Practitioner" />
+    <source media="(prefers-color-scheme: light)" srcset="https://readme-typing-svg.demolab.com?font=Lexend&size=18&duration=1000&pause=998&color=000000&repeat=false&width=600&height=25&lines=AWS+Certified+Cloud+Practitioner" />
+    <img alt="Typing SVG" src="https://readme-typing-svg.demolab.com?font=Lexend&size=18&duration=1000&pause=998&color=FFFFFF&repeat=false&width=600&height=25&lines=AWS+Certified+Cloud+Practitioner" />
   </picture>
 </div>
 
-## About Me
+<br />
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com?font=Lexend&size=24&duration=1000&pause=998&color=FFFFFF&repeat=false&width=600&height=35&lines=About+Me" />
+  <source media="(prefers-color-scheme: light)" srcset="https://readme-typing-svg.demolab.com?font=Lexend&size=24&duration=1000&pause=998&color=000000&repeat=false&width=600&height=35&lines=About+Me" />
+  <img alt="Typing SVG" src="https://readme-typing-svg.demolab.com?font=Lexend&size=24&duration=1000&pause=998&color=FFFFFF&repeat=false&width=600&height=35&lines=About+Me" />
+</picture>
 
-I am a full-stack software engineer with expertise in building scalable AI-driven applications. My experience includes developing tools for document analysis, conversational AI, and secure digital wallets using modern frameworks and cloud technologies. I hold an AWS Certified Cloud Practitioner certification and actively contribute to open-source projects. I focus on leveraging LLMs and vector databases to solve real-world problems.
+<picture>
+
+  <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com?font=Lexend&size=16&duration=1000&pause=998&color=FFFFFF&multiline=true&width=600&height=50&lines=I+am+currently+exploring+Python%2C+GenAI%2C+Vector+DB+and+LLMs." />
+  <source media="(prefers-color-scheme: light)" srcset="https://readme-typing-svg.demolab.com?font=Lexend&size=16&duration=1000&pause=998&color=000000&multiline=true&width=600&height=50&lines=I+am+currently+exploring+Python%2C+GenAI%2C+Vector+DB+and+LLMs." />
+  <img alt="Typing SVG" src="https://readme-typing-svg.demolab.com?font=Lexend&size=16&duration=1000&pause=998&color=FFFFFF&multiline=true&width=600&height=50&lines=I+am+currently+exploring+Python%2C+GenAI%2C+Vector+DB+and+LLMs." />
+</picture>
+
 
 <br />
-
-## 🛠️ Technical Stack
+<br />
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com?font=Lexend&size=24&duration=1000&pause=998&color=FFFFFF&repeat=false&width=600&height=35&lines=Tech+Stack" />
+  <source media="(prefers-color-scheme: light)" srcset="https://readme-typing-svg.demolab.com?font=Lexend&size=24&duration=1000&pause=998&color=000000&repeat=false&width=600&height=35&lines=Tech+Stack" />
+  <img alt="Typing SVG" src="https://readme-typing-svg.demolab.com?font=Lexend&size=24&duration=1000&pause=998&color=FFFFFF&repeat=false&width=600&height=35&lines=Tech+Stack" />
+</picture>
+<br />
 
 | Domain | Technologies |
 | :--- | :--- |
@@ -42,7 +58,11 @@ I am a full-stack software engineer with expertise in building scalable AI-drive
 
 <br />
 
-## 🚀 Key Projects
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com?font=Lexend&size=24&duration=1000&pause=998&color=FFFFFF&repeat=false&width=600&height=35&lines=Key+Projects" />
+  <source media="(prefers-color-scheme: light)" srcset="https://readme-typing-svg.demolab.com?font=Lexend&size=24&duration=1000&pause=998&color=000000&repeat=false&width=600&height=35&lines=Key+Projects" />
+  <img alt="Typing SVG" src="https://readme-typing-svg.demolab.com?font=Lexend&size=24&duration=1000&pause=998&color=FFFFFF&repeat=false&width=600&height=35&lines=Key+Projects" />
+</picture>
 
 <div align="center">
   <a href="https://github.com/prayagtushar/OpsverseAI">
@@ -63,9 +83,13 @@ I am a full-stack software engineer with expertise in building scalable AI-drive
 
 <br />
 
-## 📊 GitHub Analytics
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com?font=Lexend&size=24&duration=1000&pause=998&color=FFFFFF&repeat=false&width=600&height=35&lines=GitHub+Analytics" />
+  <source media="(prefers-color-scheme: light)" srcset="https://readme-typing-svg.demolab.com?font=Lexend&size=24&duration=1000&pause=998&color=000000&repeat=false&width=600&height=35&lines=GitHub+Analytics" />
+  <img alt="Typing SVG" src="https://readme-typing-svg.demolab.com?font=Lexend&size=24&duration=1000&pause=998&color=FFFFFF&repeat=false&width=600&height=35&lines=GitHub+Analytics" />
+</picture>
 
 <div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=prayagtushar&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" height="150" alt="stats graph"  />
+  <img src="https://github-readme-stats.vercel.app/api?username=prayagtushar&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" height="150" alt="stats graph" />
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=prayagtushar&layout=compact&theme=tokyonight&hide_border=true&hide=html,css" height="150" alt="languages graph" />
 </div>
