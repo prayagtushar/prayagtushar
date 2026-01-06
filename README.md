@@ -9,7 +9,7 @@
   <br/>
   <br/>
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com?font=Lexend&size=18&duration=1000&pause=998&color=FFFFFF&repeat=false&width=600&height=25&lines=Software+Development+Engineer" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com?font=Lexend&size=18&duration=1000&pause=998&color=FFFFFF&repeat=false&width=600&height=25&lines=Software+Engineer" />
     <source media="(prefers-color-scheme: light)" srcset="https://readme-typing-svg.demolab.com?font=Lexend&size=18&duration=1000&pause=998&color=000000&repeat=false&width=600&height=25&lines=Software+Development+Engineer" />
     <img alt="Typing SVG" src="https://readme-typing-svg.demolab.com?font=Lexend&size=18&duration=1000&pause=998&color=FFFFFF&repeat=false&width=600&height=25&lines=Software+Development+Engineer" />
   </picture>
