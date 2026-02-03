@@ -41,5 +41,6 @@
 | **Data & Cloud** | ![AWS](https://img.shields.io/badge/-AWS-232F3E?style=flat&logo=amazon-aws&logoColor=white) ![Docker](https://img.shields.io/badge/-Docker-2496ED?style=flat&logo=docker&logoColor=white) ![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-316192?style=flat&logo=postgresql&logoColor=white) ![Redis](https://img.shields.io/badge/-Redis-DC382D?style=flat&logo=redis&logoColor=white) |
 | **Frontend** | ![Next.js](https://img.shields.io/badge/-Next.js-000000?style=flat&logo=next.js&logoColor=white) ![React](https://img.shields.io/badge/-React-20232A?style=flat&logo=react&logoColor=61DAFB) ![Tailwind](https://img.shields.io/badge/-Tailwind-38B2AC?style=flat&logo=tailwind-css&logoColor=white) |
 
-
 [![An image of @prayag09's Holopin badges, which is a link to view their full Holopin profile](https://holopin.me/prayag09)](https://holopin.io/@prayag09)
+
+![prayagtushar-space-shooter](https://github.com/user-attachments/assets/bff77701-8e1b-4dd2-b590-3e1b448f4e6a)
