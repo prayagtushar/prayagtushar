@@ -22,24 +22,34 @@ Skills & Tools
 
 Featured Projects
 
-● Ask Video.AI
-✦ SaaS RAG bot that lets you query YouTube with LangChain, Gemini, and Pinecone.
-✦ Handles transcript chunking and orchestrates real-time responses.
-✦ Repo: https://github.com/prayagtushar/askVideo.ai
+● SynthInterview (under development)
 
-● Opsverse AI
-✦ PDF-focused chat app with Clerk auth and Stripe billing.
-✦ Built on vector embeddings; deployed using AWS S3 and Drizzle ORM.
-✦ Live: https://www.opsverse.live/
-
-● LumosAI
-✦ Conversational assistant powered by the Gemini API with persisting chats.
-✦ Uses MongoDB for storage and Clerk for user management.
-✦ Live: https://lumos-maxima.vercel.app/
+  ✦ Built to automate your coding interview rounds, built in Python and NextJs.
+  ✦ Fully controlled and powered by gemini.
 
 ● Spotify CLI (Voice-Controlled)
-✦ Terminal utility for hands‑free music control, built in Python.
-✦ Integrates Spotify Web API and speech recognition.
+
+  ✦ Terminal utility for hands‑free music control, built in Python.
+  ✦ Integrates Spotify Web API and speech recognition.
+
+● Ask Video.AI
+
+  ✦ SaaS RAG bot that lets you query YouTube with LangChain, Gemini, and Pinecone.
+  ✦ Handles transcript chunking and orchestrates real-time responses.
+  ✦ Repo: https://github.com/prayagtushar/askVideo.ai
+
+● Opsverse AI
+
+  ✦ SaaS Rag bot that lets you upload a pdf and have a chat with your pdf..
+  ✦ Built on vector embeddings; deployed using AWS & Vercel.
+  ✦ Live: https://www.opsverse.live/
+
+● LumosAI
+
+  ✦ Conversational assistant powered by the Gemini API with persisting chats.
+  ✦ Uses MongoDB for storage and Clerk for user management.
+  ✦ Live: https://lumos-maxima.vercel.app/
+
 
 ---
 
