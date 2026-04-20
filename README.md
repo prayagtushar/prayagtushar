@@ -61,4 +61,5 @@ Let's build something cool together <3
 
 [![An image of @prayag09's Holopin badges, which is a link to view their full Holopin profile](https://holopin.me/prayag09)](https://holopin.io/@prayag09)
 
-![prayagtushar-space-shooter](https://github.com/user-attachments/assets/bff77701-8e1b-4dd2-b590-3e1b448f4e6a)
+<img width="860" height="230" alt="prayagtushar-space-shooter" src="https://github.com/user-attachments/assets/f3cbea34-a314-4599-a0a1-1017f9ee0a7c" />
+
