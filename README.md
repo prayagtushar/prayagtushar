@@ -1,65 +1,40 @@
 # prayag tushar ⌘
 
-Bridging the gap between electronic logic and generative AI.
-Engineer of scalable backends and creator of intelligent tools.
+building scalable backends and ai-native tools.
+mostly python, nestjs, next.js, and whatever the problem needs.
 
-» [LinkedIn](https://linkedin.com/in/prayagtushar/)
-» [GitHub](https://github.com/prayagtushar)
-
----
-
-Skills & Tools
-
-» AI & Backend: Python, LangChain, Gemini API, NestJS, Node.js
-
-» Languages: TypeScript, JavaScript, Java, C++
-
-» Infrastructure: PostgreSQL, Redis, Docker, AWS
-
-» Frontend: Next.js, React, Tailwind CSS
+[l] [linkedin](https://linkedin.com/in/prayagtushar/)
+[g] [github](https://github.com/prayagtushar)
 
 ---
 
-Featured Projects
+[s] skills
 
-● SynthInterview (under development)
-
-  ✦ Built to automate your coding interview rounds, built in Python and NextJs.
-  ✦ Fully controlled and powered by gemini.
-
-● Spotify CLI (Voice-Controlled)
-
-  ✦ Terminal utility for hands‑free music control, built in Python.
-  ✦ Integrates Spotify Web API and speech recognition.
-
-● Ask Video.AI
-
-  ✦ SaaS RAG bot that lets you query YouTube with LangChain, Gemini, and Pinecone.
-  ✦ Handles transcript chunking and orchestrates real-time responses.
-  ✦ Repo: https://github.com/prayagtushar/askVideo.ai
-
-● Opsverse AI
-
-  ✦ SaaS Rag bot that lets you upload a pdf and have a chat with your pdf..
-  ✦ Built on vector embeddings; deployed using AWS & Vercel.
-  ✦ Live: https://www.opsverse.live/
-
-● LumosAI
-
-  ✦ Conversational assistant powered by the Gemini API with persisting chats.
-  ✦ Uses MongoDB for storage and Clerk for user management.
-  ✦ Live: https://lumos-maxima.vercel.app/
-
+- ai / backend — python, langchain, gemini api, nestjs, node.js
+- languages   — typescript, javascript, java, c++
+- infra       — postgresql, redis, docker, aws
+- frontend    — next.js, react, tailwind
 
 ---
 
-Thanks for stopping by! :)
+[p] projects
 
-Feel free to say hi, share ideas, or grab a virtual coffee ☕︎
+- **readora** — chat with your pdf. rag over gemini embeddings + pinecone, next.js 15, clerk, neon.
+  [live](https://readora.prayagtushar.xyz/) · [repo](https://github.com/prayagtushar/readora)
 
-Let's build something cool together <3
+- **synthinterview** *(wip)* — automates coding-interview rounds. python + next.js, gemini-powered.
 
-[![An image of @prayag09's Holopin badges, which is a link to view their full Holopin profile](https://holopin.me/prayag09)](https://holopin.io/@prayag09)
+- **ask video.ai** — query youtube videos via langchain + gemini + pinecone.
+  [repo](https://github.com/prayagtushar/askVideo.ai)
 
-<img width="860" height="230" alt="prayagtushar-space-shooter" src="https://github.com/user-attachments/assets/f3cbea34-a314-4599-a0a1-1017f9ee0a7c" />
+- **spotify cli** — voice-controlled terminal music client. python + spotify web api.
 
+- **lumosai** — gemini chat assistant with persistent threads. mongodb + clerk.
+  [live](https://lumos-maxima.vercel.app/)
+
+---
+
+[c] say hi
+
+open to interesting problems, especially around ai infra and dx tooling.
+let's build something cool.
