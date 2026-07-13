@@ -15,6 +15,10 @@ shared on Glassdoor, LeetCode Discuss, Medium, Taro, Reddit, LinkedIn and X, plu
 
 ```
 interview-prep/
+├── project-defense.md          # the hardest questions about YOUR projects (Readora,
+│                               #   askVideo.ai), answered from the actual code
+├── jobs-snapshot.md            # live AI-eng job matches (Indeed/ZipRecruiter) mapped to prep files
+├── site/build_site.py          # generates the browsable study site → ../docs/
 ├── india/                      # Indian startups, GCCs, MNC India offices (0–2 YOE loops)
 │   ├── README.md               #   what a typical Indian loop looks like
 │   ├── 01-genai-llm-core-questions.md
@@ -51,6 +55,20 @@ interview-prep/
    US big-tech still runs LeetCode mediums.
 5. **Refresh the bank with live data** — run the `scrapers/` pipeline with your Apify token to
    pull fresh interview-experience posts from LinkedIn and X (see `scrapers/README.md`).
+
+## Study site (GitHub Pages)
+
+The whole bank is also a single searchable web page — Geist typography, collapsible
+question cards, dark mode — generated into [`/docs`](../docs/) at the repo root.
+
+**Enable it once:** repo **Settings → Pages → Source: Deploy from a branch →
+`main` + `/docs` → Save**. The site appears at
+`https://prayagtushar.github.io/prayagtushar/`.
+
+**Regenerate after editing any markdown:**
+```bash
+pip install markdown && python interview-prep/site/build_site.py
+```
 
 ## Splitting this into its own repo
 

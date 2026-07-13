@@ -65,11 +65,14 @@ preference pairs) for helpfulness/harmlessness. Optionally RLVR on verifiable ta
 (math/code with checkable answers) for reasoning models.
 
 **9. You have 5k support transcripts. Fine-tune or not?**
-Interviewer wants judgment, not enthusiasm. First: what's failing with prompting + RAG? 5k
-raw transcripts ≠ 5k training examples — they need cleaning into ideal input→output pairs,
-and human transcripts contain errors you'd be teaching. If format/tone is the gap: SFT with
-LoRA on a curated subset, eval before/after on a held-out set. If knowledge is the gap: RAG,
-not fine-tuning. Mention catastrophic forgetting and the need for regression evals.
+This question is a judgment test — the wrong answer is "yes, let's fine-tune!" My actual
+first question back: what's failing with prompting plus RAG today? Then the uncomfortable
+truth: 5k raw transcripts is not 5k training examples. They need curating into ideal
+input→output pairs, and real human transcripts are full of mistakes you'd be teaching the
+model to imitate. If the gap turns out to be format or tone — SFT with LoRA on a curated
+subset, with before/after evals on a held-out set. If the gap is knowledge — that's RAG,
+and fine-tuning would've been an expensive detour. Either way I'd watch for catastrophic
+forgetting with a general regression suite.
 
 **10. Full fine-tune vs LoRA vs prompt-tuning — memory math intuition.**
 Full FT: weights + gradients + optimizer states ≈ 4× model size in memory (7B ≈ 100+ GB) —
@@ -111,10 +114,12 @@ shadow index, eval, then blue/green swap. Track index lag as a metric if freshne
 (support docs, pricing).
 
 **16. Long-context models are getting cheap — is RAG dead?**
-No; the trade-off moved. Stuffing 200k tokens per query costs and slows every call, degrades
-mid-context recall, and gives no access control or citations over a moving corpus. RAG keeps
-per-query cost flat and auditable. Real answer: hybrid — retrieval to select, long context
-to be generous about how much you include.
+I get why people say it, but no — the trade-off just moved. Stuffing 200k tokens into every
+query means paying for and waiting on all of them, every single call; recall in the middle
+of huge contexts still degrades; and there's no access control or citation story when you
+dump a whole corpus into a prompt. RAG keeps per-query cost flat and auditable. Where I've
+landed: use retrieval to *select*, and use the long context to be generous about how much
+you include — hybrid, not either/or.
 
 ---
 
@@ -163,11 +168,13 @@ input/output filtering, instruction hierarchy, least-privilege tools, human appr
 irreversible actions, rate/cost limits, logging. Cite OWASP LLM Top 10 to look prepared.
 
 **23. Your LLM bill doubled month-over-month. Walk through your response.**
-Attribute first: per-feature/per-model token dashboards — is it traffic growth, prompt
-bloat, a retry loop, or abuse? Then optimize in order of leverage: caching (exact +
-semantic), prompt slimming + prompt-caching for static prefixes, model routing (small model
-for easy intents), output caps, batch APIs for offline work. Close with alerting on
-cost-per-query regression so it never surprises you again.
+Diagnose before optimizing — a doubled bill has four usual suspects: traffic actually grew
+(good news, different conversation), a prompt got bloated in a deploy, a retry loop went
+feral, or someone's abusing an endpoint. Per-feature token dashboards tell you which within
+the hour. Then optimize in order of leverage: caching (exact and semantic), slimming
+prompts and prompt-caching the static prefixes, routing easy intents to a small model,
+capping output tokens, moving offline work to batch APIs. And the step people skip: put an
+alert on cost-per-query so the *next* regression pages you instead of surprising finance.
 
 **24. What do you log/monitor for an LLM feature in production?**
 Per request: prompt version, model, retrieved chunk IDs, tokens in/out, latency (TTFT +

@@ -1,0 +1,1906 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Interview Prep — 1 YOE</title>
+<meta name="description" content="Real interview questions and answers for AI/GenAI/LLM engineer roles at ~1 YOE — India and US/Global.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fdfdfc; --panel:#f4f4f2; --text:#1c1c1a; --muted:#6f6f68; --line:#e4e4df;
+  --accent:#0b7261; --accent-soft:#e3f1ee; --code-bg:#f0f0ed; --mark:#fff3bf;
+}
+[data-theme="dark"]{
+  --bg:#111113; --panel:#1a1a1e; --text:#ececea; --muted:#9a9a92; --line:#2a2a2f;
+  --accent:#4cc4ae; --accent-soft:#15332e; --code-bg:#1f1f24; --mark:#4d431a;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:1rem}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:'Geist',ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;
+  font-size:16.5px;line-height:1.75;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.layout{display:flex;min-height:100vh}
+nav{width:280px;flex-shrink:0;border-right:1px solid var(--line);background:var(--panel);
+  padding:1.2rem 1rem 3rem;position:sticky;top:0;height:100vh;overflow-y:auto}
+nav .brand{font-weight:700;font-size:1.05rem;margin:.2rem 0 1rem;display:block;color:var(--text)}
+.nav-group h3{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:1.2rem 0 .3rem}
+.nav-group a{display:block;padding:.3rem .6rem;border-radius:8px;color:var(--text);font-size:.92rem}
+.nav-group a:hover{background:var(--accent-soft);text-decoration:none}
+main{flex:1;min-width:0;padding:2rem clamp(1.2rem,4vw,3.5rem) 6rem;max-width:54rem}
+.toolbar{display:flex;gap:.6rem;align-items:center;position:sticky;top:0;z-index:5;
+  background:var(--bg);padding:.8rem 0;border-bottom:1px solid var(--line);margin-bottom:1.5rem}
+#search{flex:1;padding:.6rem .9rem;border:1px solid var(--line);border-radius:10px;
+  background:var(--panel);color:var(--text);font:inherit;font-size:.95rem}
+#search:focus{outline:2px solid var(--accent);border-color:transparent}
+.toolbar button{padding:.55rem .8rem;border:1px solid var(--line);border-radius:10px;
+  background:var(--panel);color:var(--text);font:inherit;font-size:.85rem;cursor:pointer}
+.toolbar button:hover{background:var(--accent-soft)}
+#count{font-size:.85rem;color:var(--muted);white-space:nowrap}
+section{margin-bottom:4rem}
+.page-title{font-size:1.7rem;line-height:1.25;margin:2.5rem 0 1rem;letter-spacing:-.02em}
+h2{font-size:1.25rem;margin:2.2rem 0 .8rem;letter-spacing:-.01em}
+h3{font-size:1.05rem}
+p{margin:.8rem 0}
+blockquote{margin:1rem 0;padding:.6rem 1rem;border-left:3px solid var(--accent);
+  background:var(--panel);border-radius:0 10px 10px 0;color:var(--muted)}
+code{font-family:'Geist Mono',ui-monospace,monospace;font-size:.86em;
+  background:var(--code-bg);padding:.12em .35em;border-radius:5px}
+pre{background:var(--code-bg);padding:1rem;border-radius:12px;overflow-x:auto;line-height:1.55}
+pre code{background:none;padding:0}
+table{border-collapse:collapse;display:block;overflow-x:auto;margin:1rem 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:.5rem .7rem;text-align:left;vertical-align:top}
+th{background:var(--panel)}
+details.qa{border:1px solid var(--line);border-radius:12px;margin:.6rem 0;background:var(--panel)}
+details.qa summary{cursor:pointer;padding:.75rem 1rem;font-weight:600;list-style:none;
+  display:flex;gap:.5rem;align-items:baseline;flex-wrap:wrap}
+details.qa summary::before{content:'+';color:var(--accent);font-weight:700;margin-right:.2rem}
+details.qa[open] summary::before{content:'–'}
+details.qa summary:hover{color:var(--accent)}
+.qtag{font-weight:400;font-size:.8rem;color:var(--muted);font-style:italic}
+.answer{padding:0 1.1rem .9rem;border-top:1px dashed var(--line)}
+mark{background:var(--mark);color:inherit;border-radius:3px;padding:0 .1em}
+.hidden{display:none!important}
+#menu-btn{display:none}
+@media (max-width:820px){
+  nav{position:fixed;left:0;top:0;transform:translateX(-100%);transition:transform .2s;z-index:20;box-shadow:4px 0 20px rgba(0,0,0,.15)}
+  nav.open{transform:none}
+  #menu-btn{display:inline-block}
+  main{padding-top:.5rem}
+}
+</style>
+</head>
+<body>
+<div class="layout">
+<nav>
+<a class="brand" href="#start">🎯 AI Interview Prep <span style="color:var(--muted);font-weight:400">· 1 YOE</span></a>
+<div class="nav-group"><h3>Getting ready</h3><a href="#start" data-nav="start">Start Here</a><a href="#defense" data-nav="defense">Project Defense</a><a href="#jobs" data-nav="jobs">Live Job Matches</a></div>
+<div class="nav-group"><h3>India</h3><a href="#in-loop" data-nav="in-loop">India · The Loop</a><a href="#in-core" data-nav="in-core">India · GenAI/LLM Core</a><a href="#in-py" data-nav="in-py">India · Python Round</a><a href="#in-dsa" data-nav="in-dsa">India · DSA/SDE Round</a><a href="#in-companies" data-nav="in-companies">India · Company Experiences</a><a href="#in-hr" data-nav="in-hr">India · HR & Behavioral</a></div>
+<div class="nav-group"><h3>US / Global</h3><a href="#us-loop" data-nav="us-loop">US/Global · The Loop</a><a href="#us-core" data-nav="us-core">US/Global · GenAI/LLM Depth</a><a href="#us-design" data-nav="us-design">US/Global · System Design</a><a href="#us-code" data-nav="us-code">US/Global · Coding Rounds</a><a href="#us-companies" data-nav="us-companies">US/Global · Company Loops</a><a href="#us-behavioral" data-nav="us-behavioral">US/Global · Behavioral</a></div>
+<div class="nav-group"><h3>Reference</h3><a href="#sources" data-nav="sources">Sources</a></div>
+</nav>
+<main>
+<div class="toolbar">
+<button id="menu-btn" title="Menu">☰</button>
+<input id="search" type="search" placeholder="Search all questions… (e.g. chunking, LoRA, Pinecone)">
+<span id="count"></span>
+<button id="toggle-btn">Expand all</button>
+<button id="theme-btn" title="Toggle theme">◐</button>
+</div>
+<section id="start" data-title="Start Here"><h1 class="page-title">Start Here</h1>
+<p>A question bank of <strong>real interview questions with answers</strong> for AI / GenAI / LLM Engineer and
+SDE-with-AI-focus roles at roughly 1 year of experience, compiled from interview experiences
+shared on Glassdoor, LeetCode Discuss, Medium, Taro, Reddit, LinkedIn and X, plus the major
+2026 question compilations. Every claim about "what gets asked" is traceable via <a href="SOURCES.md">SOURCES.md</a>.</p>
+<blockquote>
+<p><strong>TL;DR of the 2026 market:</strong> AI-engineer interviews are now 60%+ GenAI-focused. Five clusters
+cover ~90% of loops: <strong>LLM/transformer basics, RAG architecture, agentic systems,
+prompt engineering + evals, and system design for LLM products.</strong> Big tech still runs 1–2
+LeetCode rounds; AI startups increasingly replace DSA with live coding against LLM APIs or
+"machine coding" rounds.</p>
+</blockquote>
+<h2>Structure</h2>
+<pre><code>interview-prep/
+├── project-defense.md          # the hardest questions about YOUR projects (Readora,
+│                               #   askVideo.ai), answered from the actual code
+├── jobs-snapshot.md            # live AI-eng job matches (Indeed/ZipRecruiter) mapped to prep files
+├── site/build_site.py          # generates the browsable study site → ../docs/
+├── india/                      # Indian startups, GCCs, MNC India offices (0–2 YOE loops)
+│   ├── README.md               #   what a typical Indian loop looks like
+│   ├── 01-genai-llm-core-questions.md
+│   ├── 02-python-and-coding-round.md
+│   ├── 03-dsa-sde-round.md
+│   ├── 04-company-experiences.md
+│   └── 05-hr-behavioral.md
+├── us-global/                  # US-style loops (recruiter screen → phone screen → onsite)
+│   ├── README.md
+│   ├── 01-genai-llm-questions.md
+│   ├── 02-llm-system-design.md
+│   ├── 03-coding-rounds.md
+│   ├── 04-company-loops.md
+│   └── 05-behavioral.md
+├── scrapers/                   # Apify pipeline: scrape LinkedIn + X interview-experience posts
+│   ├── README.md
+│   ├── config.py
+│   ├── scrape_linkedin.py
+│   ├── scrape_x.py
+│   └── parse_results.py
+└── SOURCES.md
+</code></pre>
+<h2>How to use this at 1 YOE</h2>
+<ol>
+<li><strong>Start with your market folder</strong> (<code>india/</code> or <code>us-global/</code>) — round structures differ a lot.</li>
+<li><strong>Master <code>01-genai-llm-core-questions.md</code> first.</strong> At 1 YOE, interviewers mostly probe
+   whether you truly understand what you built (RAG, embeddings, LangChain) — not exotic theory.</li>
+<li><strong>Your projects ARE the interview.</strong> Expect 30–50% of technical time on "walk me through
+   your project" follow-ups. For every project (e.g. a RAG PDF-chat app), be ready to answer:
+   why this vector DB, why this chunk size, how you handled hallucination, what broke and how
+   you fixed it, what it costs per query.</li>
+<li><strong>Do the coding files second</strong> — Indian rounds still ask easy Python + occasional DSA;
+   US big-tech still runs LeetCode mediums.</li>
+<li><strong>Refresh the bank with live data</strong> — run the <code>scrapers/</code> pipeline with your Apify token to
+   pull fresh interview-experience posts from LinkedIn and X (see <code>scrapers/README.md</code>).</li>
+</ol>
+<h2>Study site (GitHub Pages)</h2>
+<p>The whole bank is also a single searchable web page — Geist typography, collapsible
+question cards, dark mode — generated into <a href="../docs/"><code>/docs</code></a> at the repo root.</p>
+<p><strong>Enable it once:</strong> repo <strong>Settings → Pages → Source: Deploy from a branch →
+<code>main</code> + <code>/docs</code> → Save</strong>. The site appears at
+<code>https://prayagtushar.github.io/prayagtushar/</code>.</p>
+<details class="qa"><summary>Regenerate after editing any markdown:</summary><div class="answer"><pre><code class="language-bash">pip install markdown &amp;&amp; python interview-prep/site/build_site.py
+</code></pre></div></details>
+<h2>Splitting this into its own repo</h2>
+<p>This content lives on a branch of the profile repo because the session couldn't create new
+repos. To extract it:</p>
+<pre><code class="language-bash"># create the new empty repo on github.com first (e.g. ai-interview-prep-1yoe), then:
+git clone --branch claude/interview-questions-scraper-xqhhc6 https://github.com/prayagtushar/prayagtushar.git tmp
+cd tmp &amp;&amp; git subtree split --prefix=interview-prep -b prep-only
+git push git@github.com:prayagtushar/ai-interview-prep-1yoe.git prep-only:main
+</code></pre></section>
+<section id="defense" data-title="Project Defense"><h1 class="page-title">Project Defense</h1>
+<p>At 1 YOE, half the interview is someone poking at your projects until something wobbles.
+This file is the grill I'd run on my own code — every question below comes from actually
+reading <code>readora</code> and <code>askvideo.ai</code>, with answers grounded in what the code really does
+(file paths included so I can re-check before an interview). First person, ready to say
+out loud.</p>
+<hr />
+<h2>Readora — the 2-minute pitch</h2>
+<p>"Readora is chat-with-your-PDF. You upload a PDF, it gets parsed and split into chunks,
+embedded with Gemini's embedding model, and stored in Pinecone — one namespace per file.
+When you ask a question, I embed the query, pull the top matching chunks above a similarity
+threshold, and feed them to Gemini Flash with a strict system prompt that only allows
+answers from that context — if the answer isn't there, it says so instead of guessing.
+The stack is Next.js 15 App Router with Clerk auth, Drizzle on Neon Postgres for chats and
+messages, and the Vercel AI SDK for streaming. Responses stream token-by-token and get
+persisted when generation finishes."</p>
+<h2>Readora — the grill</h2>
+<details class="qa"><summary>Q. Why chunk size 1000 with 200 overlap?<span class="qtag">(<code>lib/rag/chunking.ts</code>)</span></summary><div class="answer"><p>Honest answer: it's the sensible community default, and at ~1000 characters a chunk is big
+enough to hold a complete thought but small enough that the embedding stays focused. The
+200 overlap protects sentences that straddle a boundary. What I'd say next: I haven't
+tuned it against an eval set yet, and that's the real answer — chunk size is an empirical
+knob, and I'd build ~50 question→page pairs and measure retrieval hit-rate before touching it.</p></div></details>
+<details class="qa"><summary>Q. You strip all newlines from each page before splitting. Why — and what does that cost you?</summary><div class="answer"><p>The PDF loader emits hard line breaks mid-sentence (PDFs wrap lines visually, not
+semantically), and those fake breaks hurt both the splitter and the embeddings. The cost:
+<code>RecursiveCharacterTextSplitter</code> uses paragraph and line separators as its preferred split
+points, so after stripping newlines it falls back to sentence/word boundaries. For clean,
+well-structured PDFs I'd be losing real paragraph structure. If pushed: the better fix is
+smarter normalization — collapse single newlines but keep doubles as paragraph breaks.</p></div></details>
+<details class="qa"><summary>Q. Why 768 dimensions when gemini-embedding-001 goes up to 3072?<span class="qtag">(<code>lib/rag/embeddings.ts</code>)</span></summary><div class="answer"><p>It's a deliberate cost/quality trade. The model is Matryoshka-trained, so you can truncate
+dimensions with modest quality loss — 768d means a quarter of the storage and faster
+similarity math in Pinecone, which matters because Pinecone pricing and query latency both
+scale with vector size. For a per-document QA app the recall difference didn't justify 4×
+the footprint.</p></div></details>
+<details class="qa"><summary>Q. What are those task types on the embedding calls?</summary><div class="answer"><p>Gemini supports asymmetric retrieval: documents get embedded as <code>RETRIEVAL_DOCUMENT</code>,
+queries as <code>RETRIEVAL_QUERY</code>, and the model optimizes the two spaces so short questions
+match long passages better. It's basically free retrieval quality — you just have to not
+mix them up, and remember queries and documents must come from the same model family.</p></div></details>
+<details class="qa"><summary>Q. Your vector IDs are <code>md5(JSON.stringify(embedding))</code>. Defend that.<span class="qtag">(<code>lib/rag/vectorstore.ts</code>)</span></summary><div class="answer"><p>What it buys: deterministic IDs, so re-ingesting the same file upserts instead of
+duplicating vectors. What I'd concede: hashing the <em>embedding</em> is roundabout — identical
+text on two different pages produces identical embeddings, so one of them silently wins
+and I lose its page number. Hashing <code>fileKey + pageNumber + chunkIndex</code> would be the
+cleaner key. In askVideo.ai I actually did it the simpler way — <code>videoId#index</code>.</p></div></details>
+<details class="qa"><summary>Q. Why one Pinecone namespace per file instead of one namespace with a metadata filter?</summary><div class="answer"><p>Namespaces give hard isolation for free: queries are scoped to the file by construction,
+there's no way to leak another user's document into retrieval, and deleting a document is
+<code>deleteNamespace</code>, one call. The trade-off is you can't search across documents. In
+askVideo.ai I used the other pattern — single namespace, <code>videoId</code> metadata filter —
+which is more flexible but makes isolation a query-discipline problem instead of a
+guarantee. Having shipped both, I'd pick namespaces whenever the product is
+"chat with one document at a time."</p></div></details>
+<details class="qa"><summary>Q. Where did the 0.5 score threshold come from?<span class="qtag">(<code>lib/rag/retrieval.ts</code>)</span></summary><div class="answer"><p>Empirically — I looked at real queries and saw matches below ~0.5 cosine similarity were
+noise for this embedding model at 768d. The comment in the code literally says "revisit
+with eval data" and I stand by that being the right next step: sweep the threshold against
+a labeled set and pick the knee of the precision/recall curve. A fixed threshold is also
+model-specific — if I swap embedding models the 0.5 means something different.</p></div></details>
+<details class="qa"><summary>Q. You cap context at 3,000 characters with a <code>.slice()</code>. What's wrong with that?</summary><div class="answer"><p>Two things, and I'd name them before the interviewer does: it's characters, not tokens, so
+it's only loosely correlated with what I actually pay for; and slicing can cut the last
+chunk mid-sentence. It's a guardrail against blowing the prompt up, not a real budgeting
+strategy. The upgrade: count tokens properly, include whole chunks until the budget is
+spent, and drop the lowest-scoring chunk rather than truncating text mid-thought.</p></div></details>
+<details class="qa"><summary>Q. How do you handle "summarize this PDF"? Retrieval can't answer that.<span class="qtag">(<code>app/api/chat/route.ts</code>)</span></summary><div class="answer"><p>Right — a summary question has no localized answer, so similarity search fails. I detect
+summary intent with a regex (<code>summary|summarize|overview|what is...</code>) and switch to a
+different retrieval path: pull chunks, re-order them by page number, and give the model a
+front-of-document view. Weaknesses I'll admit: regex intent detection is brittle
+(a small classifier or an LLM router would generalize), and my intro-retrieval seeds the
+search by embedding the phrase "summary of the document," which is a hack — fetching the
+first N chunks by page directly would be more honest. For long docs, the real answer is
+map-reduce summarization over all chunks.</p></div></details>
+<details class="qa"><summary>Q. How do you stop it hallucinating?</summary><div class="answer"><p>Three layers: retrieval grounding (it only sees chunks from your PDF), a strict system
+prompt — answer only from CONTEXT, with a fixed refusal sentence when the answer isn't
+there — and a low-drama model choice (Flash at default temperature behaves well under a
+tight prompt). What I don't have yet and would add: automated faithfulness evals (RAGAS
+style) on a golden set, and citation of page numbers in answers — the metadata is already
+in Pinecone, it's just not surfaced.</p></div></details>
+<details class="qa"><summary>Q. What happens if I upload a scanned PDF?</summary><div class="answer"><p>Ingestion throws — "No extractable text found" (<code>lib/rag/ingest.ts</code>). That's deliberate
+fail-fast rather than indexing an empty document, but the honest gap is no OCR path. The
+fix: detect near-empty extraction, then run pages through OCR or a multimodal model at
+ingestion time and index the transcription.</p></div></details>
+<details class="qa"><summary>Q. Walk me through security.</summary><div class="answer"><p>Every chat API call re-derives the user from Clerk server-side and checks the chat row
+actually belongs to them before touching retrieval — so one user can't query another's
+document by guessing chat IDs. Namespace-per-file adds a second wall at the vector layer.
+Input validation on the message shape, and API errors get mapped properly (429 for rate
+limits). Gaps I'd own: no per-user rate limiting or spend cap, so one user could run up my
+Gemini bill, and no file-size/page-count limits on upload — both are middleware-level fixes.</p></div></details>
+<details class="qa"><summary>Q. Your chat sends the full message history every turn. When does that break?</summary><div class="answer"><p>When conversations get long — token cost grows linearly and eventually overflows context.
+Fine for the typical short PDF-QA session; wrong for long ones. Fix: window the last k
+turns and maintain a running summary, which also drops my cost per message.</p></div></details>
+<details class="qa"><summary>Q. If generation succeeds but your DB write fails, what happens?</summary><div class="answer"><p>The user gets their streamed answer, and persistence fails with just an error log — I chose
+UX over consistency, deliberately: killing a good answer because Postgres hiccuped would be
+the wrong failure mode. But the message pair is then lost from history. A retry queue, or
+writing the user message before generation and the assistant message after, would shrink
+the window.</p></div></details>
+<details class="qa"><summary>Q. It works for one user. What breaks at 1,000 concurrent users?</summary><div class="answer"><p>Order of failure: Gemini API rate limits (need request queuing, retries with backoff, and
+possibly provisioned throughput), then embedding-during-ingestion spikes (move ingestion to
+a background job queue instead of the request path — right now big PDFs make uploads slow),
+then Postgres connections (Neon pooling handles a lot; Drizzle is fine), then cost — which
+is a product problem: per-user quotas. Pinecone serverless and Vercel scale horizontally
+without me doing much.</p></div></details>
+<hr />
+<h2>askVideo.ai — the 2-minute pitch</h2>
+<p>"askVideo.ai is chat-with-a-YouTube-video. Paste a URL, the backend pulls the transcript,
+chunks and embeds it into Pinecone tagged by video ID, and you ask questions against it
+with Gemini answering from the retrieved transcript context. It's a NestJS backend with
+proper module separation — YouTube service, Pinecone service, Gemini service, chat
+service — Prisma on Postgres for sessions and messages, and a Vite React frontend, all in
+a turborepo monorepo. The interesting engineering is in transcript acquisition: YouTube
+doesn't hand transcripts over nicely, so there's a three-level fallback chain."</p>
+<h2>askVideo.ai — the grill</h2>
+<details class="qa"><summary>Q. What was the hardest part? (Expected answer: not the AI.)<span class="qtag">(<code>youtube.service.ts</code>)</span></summary><div class="answer"><p>Getting transcripts reliably. The official-ish path (<code>Innertube.getTranscript</code>) fails on
+plenty of videos, so I fall back to reading the caption track list from the player
+response and fetching the caption XML directly, parsing it out with a regex, and if even
+that fails, I use the video description as a last-resort knowledge base so the product
+still does <em>something</em> instead of erroring. Each layer is wrapped so a failure degrades
+instead of crashing. That's the "AI engineering is mostly data plumbing" lesson in
+miniature.</p></div></details>
+<details class="qa"><summary>Q. Ingestion still 'succeeds' even if embedding fails. Why would you do that?<span class="qtag">(<code>chat.service.ts</code>)</span></summary><div class="answer"><p>Deliberate graceful degradation: the video row and chat session get created first, and the
+embedding/Pinecone work runs in a try/catch — if Gemini quota or Pinecone is down, the
+user still lands in a chat session. The part I'd criticize myself for: chat in that state
+retrieves nothing and the model just says it can't answer, with no signal to the user why,
+and there's no retry. I'd add an ingestion-status field on the video record, surface
+"still processing / failed, retrying" in the UI, and re-queue failed embeddings.</p></div></details>
+<details class="qa"><summary>Q. You embed chunks with <code>Promise.all</code>, one API call per chunk. Critique that.</summary><div class="answer"><p>It's the naive version: N chunks means N parallel embedding calls — a long video fires
+hundreds of concurrent requests, which is a rate-limit incident waiting to happen. In
+Readora (built later) I switched to a single batched <code>embedMany</code> call. That pair of
+code snippets is my favorite own-evolution example: same problem, and you can see the
+production instinct develop between projects.</p></div></details>
+<details class="qa"><summary>Q. Here you used one namespace and a <code>videoId</code> metadata filter — the opposite of Readora. Why?</summary><div class="answer"><p>Partly learning both patterns, partly fit: videos are shared, public content, so hard
+per-user isolation matters less than in a private-documents product, and a metadata filter
+keeps the door open for cross-video search later. Deterministic IDs (<code>videoId#index</code>) also
+mean re-ingesting a video overwrites its old vectors instead of duplicating them — which,
+notice, is the thing the md5 hack was trying to achieve in Readora, done more simply.</p></div></details>
+<details class="qa"><summary>Q. Every answer ignores the conversation history. When does that bite?</summary><div class="answer"><p><code>generateAnswer</code> takes only the current question plus retrieved context — history is
+stored in Postgres for display but never fed back to the model. So follow-ups like "what
+did he mean by that?" fail, because "that" refers to something in a previous turn. Fixes,
+cheapest first: pass the last few turns into the prompt; better, rewrite the user's
+question into a standalone query using history <em>before</em> embedding it — otherwise retrieval
+itself fails on pronouns. Readora passes full history, so I've shipped both extremes; the
+right answer is in the middle.</p></div></details>
+<details class="qa"><summary>Q. No score threshold on retrieval here, unlike Readora. Consequence?</summary><div class="answer"><p>Top-5 chunks come back no matter how weak the match, so off-topic questions get padded
+with irrelevant transcript and the model may free-associate from it. The strict-context
+prompt contains most of the damage, but a threshold plus an explicit "nothing relevant
+found" path (like Readora's) is strictly better. It's on the list.</p></div></details>
+<details class="qa"><summary>Q. Why NestJS for this instead of Next.js API routes like Readora?</summary><div class="answer"><p>I wanted a real backend architecture to exist in my portfolio: dependency-injected
+services, modules, clean separation between transcript acquisition, vector store, LLM
+client, and business logic. It's also where I'd put job queues and workers as ingestion
+grows up — things that fight the serverless model Readora lives in. Honest trade-off:
+more boilerplate, slower to ship, no streaming yet (Readora streams; this returns the
+full answer in one response).</p></div></details>
+<details class="qa"><summary>Q. There's no auth. Sessions are global. Is that okay?</summary><div class="answer"><p>For a demo, yes, and I'll say it plainly rather than pretend otherwise — anyone can see
+any session (<code>listSessions</code> has no user scoping). The Postgres message writes are at least
+transactional (user + assistant messages commit together). Auth (JWT or Clerk), per-user
+session scoping, and rate limiting are the first three items if this became a product.</p></div></details>
+<hr />
+<h2>The money section: "You built RAG twice. What did you learn?"</h2>
+<p>If an interviewer asks one question about my projects, I want it to be this one.</p>
+<table>
+<thead>
+<tr>
+<th>Decision</th>
+<th>askVideo.ai (first)</th>
+<th>Readora (second)</th>
+<th>What I learned</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Vector scoping</td>
+<td>One namespace + <code>videoId</code> filter</td>
+<td>Namespace per file</td>
+<td>Filters are flexible; namespaces are <em>guarantees</em>. Match to the privacy model.</td>
+</tr>
+<tr>
+<td>Embedding calls</td>
+<td>One call per chunk, <code>Promise.all</code></td>
+<td>Single batched <code>embedMany</code></td>
+<td>Batch APIs exist because parallel-everything hits rate limits.</td>
+</tr>
+<tr>
+<td>Embedding model</td>
+<td>text-embedding-004, defaults</td>
+<td>gemini-embedding-001, 768d, task-typed</td>
+<td>Dimensions and task types are real levers, not just defaults.</td>
+</tr>
+<tr>
+<td>Retrieval quality</td>
+<td>Top-5, no threshold</td>
+<td>Top-5 + 0.5 threshold + "no context" path</td>
+<td>"No relevant context" is a state you must handle explicitly.</td>
+</tr>
+<tr>
+<td>Conversation</td>
+<td>Stateless per message</td>
+<td>Full history streamed</td>
+<td>Both extremes are wrong; window + query-rewriting is the middle.</td>
+</tr>
+<tr>
+<td>Prompting</td>
+<td>Context + question inline</td>
+<td>Strict system prompt with refusal sentence</td>
+<td>The refusal sentence is the cheapest hallucination guard there is.</td>
+</tr>
+<tr>
+<td>Delivery</td>
+<td>Full response at once</td>
+<td>Token streaming with <code>onFinish</code> persistence</td>
+<td>Streaming is a perceived-latency feature — it changes how fast the app <em>feels</em>.</td>
+</tr>
+<tr>
+<td>Failure handling</td>
+<td>Ingest survives AI-layer failure</td>
+<td>Fail-fast on empty PDFs, 429 mapping</td>
+<td>Decide per feature: degrade gracefully or fail loudly, but decide.</td>
+</tr>
+</tbody>
+</table>
+<p>And the two humble admissions that make the rest credible:
+1. <strong>Neither project has an eval suite.</strong> Retrieval thresholds and chunk sizes are
+   eyeballed. First thing I'd add today: a 50-pair golden set and RAGAS-style faithfulness
+   checks in CI. I know exactly how; I just built these before I knew evals were the
+   difference between a demo and a product.
+2. <strong>Neither has cost controls.</strong> No per-user quotas, no spend alerts. One motivated user
+   could hurt me. Rate limiting middleware + a token-spend dashboard are weekend-sized
+   fixes and I'd do them before any launch.</p>
+<p>Saying those two unprompted usually flips the toughest interviewer from attacking to
+nodding — it proves I know where the bar is even where I haven't cleared it yet.</p></section>
+<section id="jobs" data-title="Live Job Matches"><h1 class="page-title">Live Job Matches</h1>
+<p>Pulled live from Indeed (India) and ZipRecruiter (US-remote) for AI/GenAI roles that fit
+~1 YOE. Each entry maps to the prep files to study for that loop. Listings expire —
+re-pull anytime by asking Claude in a new session.</p>
+<h2>India — Bengaluru (Indeed)</h2>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Company</th>
+<th>Prep focus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://to.indeed.com/aasqps899hnp">Python Developer – AI Systems, LLMs &amp; RAG</a> (Calpion, posted Jul 6)</td>
+<td>Mid-size services</td>
+<td><code>india/01</code> (RAG sections) + <code>india/02</code> Python — exactly the Capgemini-style loop</td>
+</tr>
+<tr>
+<td><a href="https://to.indeed.com/aakz7qm2brws">Agentic AI Engineer</a> (Infosys, Jul 7)</td>
+<td>MNC</td>
+<td><code>india/01</code> C (agents, LangChain vs LangGraph) + <code>india/04</code> Infosys pattern</td>
+</tr>
+<tr>
+<td><a href="https://to.indeed.com/aaq6gqc44rvk">Gen AI Engineer</a> (Infosys, Jun 29)</td>
+<td>MNC</td>
+<td>same as above</td>
+</tr>
+<tr>
+<td><a href="https://to.indeed.com/aaxkssls27mk">AI ML GenAI Engineer</a> (TCS, Jul 10)</td>
+<td>MNC</td>
+<td><code>india/01</code> + <code>india/02</code> D (classical ML basics still asked at TCS)</td>
+</tr>
+<tr>
+<td><a href="https://to.indeed.com/aa9f29bkyw8y">AI Engineer</a> (NOMIA, Jul 10)</td>
+<td>Startup</td>
+<td><code>project-defense.md</code> — startups interview your portfolio</td>
+</tr>
+<tr>
+<td><a href="https://to.indeed.com/aacw4hcmn22s">Applied AI Engineer</a> (Avaamo, conversational-AI product co)</td>
+<td>Product</td>
+<td><code>us-global/02</code> Q1 (support chatbot design) — it's literally their product</td>
+</tr>
+<tr>
+<td><a href="https://to.indeed.com/aa4chxp2dwrz">LLM Engineer</a> (fospe, Jun 20)</td>
+<td>Startup</td>
+<td><code>us-global/01</code> A–C + <code>project-defense.md</code></td>
+</tr>
+<tr>
+<td><a href="https://to.indeed.com/aat6zsqb7r4q">SWE III – LLM/GenAI + AWS</a> (JPMorganChase, Jul 8)</td>
+<td>GCC</td>
+<td><code>india/03</code> DSA + <code>us-global/01</code> — bank GCCs run big-tech-style loops; III may want 2+ YOE, apply anyway</td>
+</tr>
+<tr>
+<td><a href="https://to.indeed.com/aarfmvn9znqf">SWE – AI/Claude Developer</a> (Barclays, Bengaluru)</td>
+<td>GCC</td>
+<td><code>india/03</code> + agents/tool-use (<code>india/01</code> C)</td>
+</tr>
+<tr>
+<td><a href="https://to.indeed.com/aarzlx49xjdl">Senior AI/ML Engineer – LLM, RAG, Agentic</a> (UnitedHealth Group)</td>
+<td>GCC</td>
+<td>Stretch (senior tag) — read the JD; UHG often has parallel junior reqs</td>
+</tr>
+</tbody>
+</table>
+<h2>India — Remote (Indeed)</h2>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Company</th>
+<th>Prep focus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://to.indeed.com/aavxyxm4t9hc">AI Developer (Backend)</a> (Tech Next, full-time)</td>
+<td>Startup</td>
+<td>Strong fit: NestJS/Python backend + AI — lead with askVideo.ai architecture</td>
+</tr>
+<tr>
+<td><a href="https://to.indeed.com/aa9zxjxvpx7v">Agentic GenAI Engineer</a> (Tech Next, Jun 13)</td>
+<td>Startup</td>
+<td><code>india/01</code> C agents + <code>us-global/03</code> format 2 (expect a live build)</td>
+</tr>
+<tr>
+<td><a href="https://to.indeed.com/aakm82tq6smr">Agentic AI Engineer</a> (grey chain, Jun 23)</td>
+<td>Startup</td>
+<td>same</td>
+</tr>
+<tr>
+<td><a href="https://to.indeed.com/aajjdmkf4t6n">AI/ML Engineer</a> (ArtPark @ IISc, Jul 9)</td>
+<td>Research foundation</td>
+<td><code>india/02</code> D ML fundamentals get more weight here</td>
+</tr>
+<tr>
+<td><a href="https://to.indeed.com/aabqwbbyhwfm">AI Engineer</a> (Codetoday, contract)</td>
+<td>Contract</td>
+<td>Quick pipeline practice; contracts interview fast — good mock-interview reps</td>
+</tr>
+<tr>
+<td><a href="https://to.indeed.com/aacfmphj8r4h">AI Engineer – Forward Deployed</a> (Databricks, remote)</td>
+<td>Big stretch</td>
+<td><code>us-global/02</code> all + <code>us-global/04</code> Databricks notes — FDE roles love people who demo/build live</td>
+</tr>
+<tr>
+<td><a href="https://to.indeed.com/aapp64lt7z64">Partner AI Deployment Engineer – AWS</a> (OpenAI, remote)</td>
+<td>Big stretch</td>
+<td><code>us-global/</code> everything. Likely wants more YOE — but the JD tells you exactly what to grow toward</td>
+</tr>
+</tbody>
+</table>
+<h2>US-remote (ZipRecruiter) — honest read</h2>
+<p>The junior+remote+US filter mostly returned roles that don't fit a 1-YOE candidate in
+India (senior tags, US-based internships, or AI-trainer gigs like DataAnnotation's
+<a href="https://www.ziprecruiter.com/job-redirect?match_token=CpcBChZ1TW9PQ2JVQTFRX0RHdGVUb3h3Y1hBEiQwMTlmNWE3YS1iNzBiLTcxZWItYjI5OS04MTUyMGNjNzE5MTkaU0FBRjljaTJ4bWZ1QlV5bGFOdVZIc2Vzbmp4b0tlY0FGRlRhWU5PM2hrWktzQTZaSmJIQVZ6VEVLSXQ3cmUteHN3RTVzSEZsakpLTG51ZGRMQjdNIMmtBRABGMmtBQ%3D%3D&amp;tsid=100000502">DevSecOps AI Trainer</a>
+— contract annotation work, not engineering). Realistic global paths at 1 YOE from India:
+remote-first startups hiring in IST (target "remote (India)" filters), GCCs of global
+companies (JPMC/Barclays/UHG above), and building toward FDE-style roles at 2–3 YOE.</p>
+<h2>How to use this list</h2>
+<ol>
+<li>Pick 3 realistic + 1 stretch. For each, read the mapped prep files the day before.</li>
+<li>Every JD above mentions RAG/agents — walk in with <code>project-defense.md</code> fresh; your two
+   RAG builds ARE the qualification.</li>
+<li>Applications age fast: prioritize postings under 2 weeks old (Calpion, Infosys, TCS,
+   NOMIA, ArtPark).</li>
+</ol></section>
+<section id="in-loop" data-title="India · The Loop"><h1 class="page-title">India · The Loop</h1>
+<p>Compiled from interview experiences at Capgemini, Infosys, TCS, Deloitte, Accenture, Swiggy,
+Sarvam AI and others (see <a href="04-company-experiences.md"><code>04-company-experiences.md</code></a> and
+<a href="../SOURCES.md"><code>SOURCES.md</code></a>).</p>
+<h2>Typical round structure</h2>
+<table>
+<thead>
+<tr>
+<th>Company type</th>
+<th>Rounds</th>
+<th>What's inside</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>MNC / GCC</strong> (Capgemini, Infosys, TCS, Deloitte, EY)</td>
+<td>L1 tech → L2 tech → HR</td>
+<td>L1: GenAI core concepts + easy Python + your projects. L2: deeper RAG/chunking/unstructured data + scenario questions. HR: notice period, CTC, relocation. ~2 weeks end to end.</td>
+</tr>
+<tr>
+<td><strong>Product companies</strong> (Swiggy, PhonePe, Flipkart)</td>
+<td>2 DSA + machine coding/managerial</td>
+<td>Still DSA-heavy (graphs, arrays, DP). Machine coding rounds ("build a small library/service in 90 min") are replacing pure talk rounds.</td>
+</tr>
+<tr>
+<td><strong>AI-native startups</strong> (Sarvam etc.)</td>
+<td>Long practical round + culture</td>
+<td>e.g. a 2.5-hour proctored build task (Sarvam: build a Voice Activity Detection system). No DSA; they test setup speed, docs familiarity, debugging under pressure, shipping ability.</td>
+</tr>
+</tbody>
+</table>
+<h2>What actually gets asked at 1 YOE (frequency-ordered)</h2>
+<ol>
+<li><strong>Your projects</strong> — every single loop. Deep follow-ups on architecture choices.</li>
+<li><strong>RAG</strong> — what/why/how, chunking strategies, PDFs with images, failure debugging.</li>
+<li><strong>LangChain / LangGraph</strong> — differences, memory, agents, tools.</li>
+<li><strong>Prompt engineering</strong> — techniques, hallucination management.</li>
+<li><strong>Easy Python coding</strong> — even/odd, primes, anagrams, duplicates, pandas basics.</li>
+<li><strong>Basic classical ML</strong> — precision/recall, imbalanced datasets, linear vs logistic regression.</li>
+<li><strong>Occasional DSA</strong> — easy/medium; heavier at product companies.</li>
+</ol>
+<p>Interviewers at MNCs rate the difficulty for 1 YOE candidates as <strong>easy-to-moderate</strong> —
+the bar is "did you really build what your resume says", not research depth.</p>
+<h2>Files</h2>
+<ul>
+<li><a href="01-genai-llm-core-questions.md"><code>01-genai-llm-core-questions.md</code></a> — the core 60+ Q&amp;A bank</li>
+<li><a href="02-python-and-coding-round.md"><code>02-python-and-coding-round.md</code></a> — Python + ML-basics round</li>
+<li><a href="03-dsa-sde-round.md"><code>03-dsa-sde-round.md</code></a> — DSA for product-company/SDE loops</li>
+<li><a href="04-company-experiences.md"><code>04-company-experiences.md</code></a> — real round-by-round experiences</li>
+<li><a href="05-hr-behavioral.md"><code>05-hr-behavioral.md</code></a> — HR round at 1 YOE (incl. "why switch so early?")</li>
+</ul></section>
+<section id="in-core" data-title="India · GenAI/LLM Core"><h1 class="page-title">India · GenAI/LLM Core</h1>
+<p>The questions below were reported in real interviews (Capgemini, Infosys, TCS, Deloitte,
+Accenture, Indian AI startups) or appear across every major 2026 compilation. Answers are
+written to be <strong>spoken in 30–90 seconds</strong> — expand only when the interviewer digs.</p>
+<hr />
+<h2>A. LLM fundamentals</h2>
+<details class="qa"><summary><ol>
+<li>What is an LLM and how does it work at a high level?</li>
+</ol></summary><div class="answer"><p>At its core, it's a next-token predictor — a transformer trained on a massive slice of the
+internet to guess what comes next, over and over. That pretraining is where the language
+and world knowledge come from; instruction tuning and RLHF afterwards are what turn a raw
+text predictor into something that actually follows instructions. At inference it just
+generates one token at a time, each conditioned on the prompt plus everything it's written
+so far — which sounds too simple to work, and yet.</p></div></details>
+<details class="qa"><summary><ol>
+<li>What is a token? Why do tokens matter in practice?</li>
+</ol></summary><div class="answer"><p>The unit models read/write — roughly ¾ of an English word (BPE/sentencepiece subwords).
+They matter because (a) you pay per token, (b) the context window is a token budget, and
+(c) latency scales with output tokens. Practical instinct: 1,000 English words ≈ 1,300 tokens.</p></div></details>
+<details class="qa"><summary><ol>
+<li>What is the context window? What happens when you exceed it?</li>
+</ol></summary><div class="answer"><p>The maximum tokens (prompt + response) the model can attend to in one call. Exceed it and
+the API errors or truncates; practically, quality degrades before the hard limit — models
+attend less reliably to the middle of very long contexts ("lost in the middle"). Mitigations:
+retrieval instead of stuffing, summarizing history, and trimming old conversation turns.</p></div></details>
+<details class="qa"><summary><ol>
+<li>Explain temperature and top-p.</li>
+</ol></summary><div class="answer"><p>Both control sampling randomness. Temperature scales the logits: low (→0) makes output
+near-deterministic, high flattens the distribution for creativity. Top-p (nucleus) samples
+only from the smallest set of tokens whose cumulative probability ≥ p. Rule of thumb:
+temperature ~0 for extraction/classification/code; 0.7+ for creative generation; tune one,
+not both.</p></div></details>
+<details class="qa"><summary><ol>
+<li>What are embeddings?</li>
+</ol></summary><div class="answer"><p>Dense vectors (e.g. 768–3072 dims) representing text meaning, produced by an embedding model.
+Semantically similar texts land close together (cosine similarity), which enables semantic
+search, clustering, deduplication, and retrieval for RAG. Note: use the same embedding model
+for documents and queries, and re-embed everything if you ever change models.</p></div></details>
+<details class="qa"><summary><ol>
+<li>What is hallucination and why does it happen?</li>
+</ol></summary><div class="answer"><p>It's when the model says something fluent, confident, and wrong. And it's not really a bug —
+the model optimizes for what's <em>plausible</em>, not what's <em>true</em>, so when the real answer
+isn't well represented in its training data or the prompt, it fills the gap with something
+that sounds right. You can't prompt it away entirely; you contain it: ground the model with
+RAG, keep temperature low, explicitly give it permission to say "I don't know," require
+citations, and put an eval step behind anything high-stakes.</p></div></details>
+<details class="qa"><summary><ol>
+<li>Difference between pretraining, fine-tuning, and prompting?</li>
+</ol></summary><div class="answer"><p>Pretraining: train from scratch on web-scale data (only labs do this). Fine-tuning: further
+train an existing model on your examples to change its <em>behavior/style/format</em>. Prompting:
+change only the input; zero training. Default order in industry: prompt → few-shot →
+RAG (for knowledge) → fine-tune (for behavior) — cheapest and most debuggable first.</p></div></details>
+<details class="qa"><summary><ol>
+<li>RAG vs fine-tuning — when do you use which?</li>
+</ol></summary><div class="answer"><p>The one-liner I use: RAG changes what the model <em>knows</em>, fine-tuning changes how it
+<em>behaves</em>. Facts that change, private data, anything needing citations — that's RAG.
+Tone, format adherence, domain jargon, consistent structured output — that's fine-tuning,
+and it's genuinely bad at adding fresh facts, so don't try. Often the honest answer is
+"both — fine-tune for format, RAG for knowledge." Worth adding that fine-tuning drags in
+real MLOps burden: versioning, retraining, regression evals — which is why you exhaust
+prompting and RAG first.</p></div></details>
+<details class="qa"><summary><ol>
+<li>What are open-weight vs closed models? Trade-offs?</li>
+</ol></summary><div class="answer"><p>Closed APIs (GPT/Gemini/Claude): best quality, zero infra, per-token cost, data leaves your
+VPC. Open-weight (Llama, Mistral, Qwen): self-hosted control, data privacy, fixed infra cost —
+but you own serving, scaling, and quality gaps. At 1 YOE, mention you'd prototype on an API
+and consider open-weight when volume/privacy justifies it.</p></div></details>
+<details class="qa"><summary><ol>
+<li>What is the transformer's key idea (one minute, no math)?</li>
+</ol></summary><div class="answer"><p>Self-attention: every token computes relevance scores against every other token and pulls in
+information from the ones that matter, in parallel — unlike RNNs which process sequentially.
+Multiple attention heads learn different relations; stacking layers builds richer
+representations. This parallelism is why transformers scale so well on GPUs.</p></div></details>
+<hr />
+<h2>B. RAG (the most-asked topic in Indian GenAI interviews)</h2>
+<details class="qa"><summary><ol>
+<li>What is RAG? Walk through the pipeline.</li>
+</ol><span class="qtag">(asked at Capgemini, Sierra, everywhere)</span></summary><div class="answer"><p>RAG is how you get an LLM to answer from <em>your</em> documents instead of its training data.
+Two halves. Ingestion, done once per document: load it, split it into chunks, embed each
+chunk, store the vectors in a vector DB. Query time: embed the user's question, pull the
+top-k most similar chunks (rerank them if you care about quality), put them in the prompt,
+and tell the model to answer only from that context — ideally with citations. One pipeline
+solves three problems at once: stale knowledge, private data, and a big chunk of
+hallucination — all without touching the model's weights. I've built this twice, so happy
+to go as deep as you want on any stage.</p></div></details>
+<details class="qa"><summary><ol>
+<li>What chunking strategies do you know? How do you choose chunk size?</li>
+</ol><span class="qtag">(Capgemini L2)</span></summary><div class="answer"><p>Fixed-size (N tokens with 10–20% overlap) — simple baseline. Recursive character splitting —
+respects paragraph/sentence boundaries (LangChain default). Structure-aware — split by
+headings/sections in Markdown/HTML/PDF. Semantic chunking — split where embedding similarity
+between sentences drops. Small chunks (~200–400 tokens) give precise retrieval but lose
+context; large (~1000+) preserve context but dilute the embedding. Start ~500 tokens with
+overlap, then tune against a retrieval eval set. Bonus: parent-document / small-to-big
+retrieval — search small chunks, feed the LLM the larger parent section.</p></div></details>
+<details class="qa"><summary><ol>
+<li>How do you handle PDFs that contain images/tables?</li>
+</ol><span class="qtag">(asked verbatim at Capgemini)</span></summary><div class="answer"><p>Text-only parsers silently drop them. Options: (a) OCR (Tesseract/AWS Textract) for scanned
+pages; (b) send page/image crops to a multimodal LLM (Gemini/GPT-4o) to produce text
+descriptions, and embed those; (c) extract tables with layout-aware parsers (unstructured.io,
+Camelot) and store as Markdown tables; (d) for figures, index a caption + description and
+keep a pointer to the original image so the app can display it. Key point: enrich at
+<em>ingestion</em> time, keep provenance metadata.</p></div></details>
+<details class="qa"><summary><ol>
+<li>Which vector databases have you used? Compare them.</li>
+</ol></summary><div class="answer"><p>Pinecone — managed, serverless, zero-ops, per-usage pricing (my choice in Readora-style
+projects). Chroma/FAISS — in-process, free, great for prototypes; FAISS is a library not a DB
+(no persistence/filtering out of the box). pgvector — vectors inside Postgres; ideal when you
+already run Postgres and want joins + metadata filters without a new system. Weaviate/Milvus/
+Qdrant — self-hosted scale + hybrid search. Choose on: managed vs self-hosted, filtering
+needs, hybrid search support, scale, and cost.</p></div></details>
+<details class="qa"><summary><ol>
+<li>How does similarity search work under the hood? (ANN, HNSW, IVF)</li>
+</ol></summary><div class="answer"><p>Exact k-NN is O(N) per query, so vector DBs use Approximate Nearest Neighbor indexes. HNSW:
+multi-layer graph, high recall, fast on CPU, but RAM-hungry — standard for millions of
+vectors. IVF+PQ (FAISS): cluster then quantize, compresses memory, good for 10M–100M+ vectors
+often on GPU. Trade-off: recall vs latency vs memory, tuned via index params (efSearch,
+nprobe).</p></div></details>
+<details class="qa"><summary><ol>
+<li>Dense vs sparse retrieval? What is hybrid search?</li>
+</ol></summary><div class="answer"><p>Dense = embeddings, matches meaning ("cardiac arrest" ≈ "heart attack") but can miss exact
+strings. Sparse = keyword/BM25, exact term matching — wins on IDs, error codes, names, rare
+jargon. Hybrid runs both and fuses results (e.g. Reciprocal Rank Fusion), often with a
+cross-encoder reranker on top. Real production RAG is usually hybrid + rerank.</p></div></details>
+<details class="qa"><summary><ol>
+<li>What is a reranker and why add one?</li>
+</ol></summary><div class="answer"><p>A cross-encoder (e.g. Cohere Rerank, bge-reranker) that scores each (query, chunk) pair
+jointly — far more accurate than embedding cosine similarity, but too slow to run over the
+whole corpus. Pattern: retrieve top-50 cheaply, rerank to top-5, prompt with those. One of
+the highest-ROI RAG upgrades.</p></div></details>
+<details class="qa"><summary><ol>
+<li>Your RAG system retrieves correctly but answers are still wrong. Debug it.</li>
+</ol><span class="qtag">(a favourite trap)</span></summary><div class="answer"><p>The trap is reaching for a bigger model. Don't. My first move is asking what "wrong" means
+and whether the failures cluster — that one question usually impresses more than any fix.
+Buckets: (a) generation ignores context → tighten the prompt ("answer only from context"),
+lower temperature, check the context isn't being truncated; (b) chunks retrieved are
+<em>related</em> but don't contain the answer → chunking/granularity problem; (c) conflicting chunks
+→ add recency/source priority metadata; (d) question needs multi-hop reasoning → query
+decomposition. Instrument first: log retrieved chunks alongside answers and eval faithfulness.</p></div></details>
+<details class="qa"><summary><ol>
+<li>Common RAG failure points overall?</li>
+</ol></summary><div class="answer"><p>Bad parsing (tables/images dropped), bad chunking, embedding model mismatch between docs and
+queries, top-k too small/large, no reranking, prompt lets the model use outside knowledge,
+context overflow truncation, stale index after doc updates, and no evaluation loop — you
+can't fix what you don't measure.</p></div></details>
+<details class="qa"><summary><ol>
+<li>How do you evaluate a RAG system?</li>
+</ol><span class="qtag">(asked constantly)</span></summary><div class="answer"><p>Split into retrieval and generation metrics. Retrieval: context precision/recall (are the
+right chunks in top-k?), hit-rate, MRR. Generation (RAGAS framework): faithfulness (is the
+answer supported by retrieved context?), answer relevancy, context precision/recall. Build a
+golden set of Q→expected-answer/chunk pairs (even 50 pairs helps), run on every change, and
+use LLM-as-judge for scale with periodic human spot checks. Tools: RAGAS, LangSmith,
+TruLens.</p></div></details>
+<details class="qa"><summary><ol>
+<li>How do you protect sensitive data in a RAG pipeline?</li>
+</ol></summary><div class="answer"><p>Ingestion: PII detection/redaction before indexing; classify docs. Retrieval: enforce
+document-level ACLs <em>in the retriever</em> via metadata filters (user can only retrieve docs they
+can read) — never rely on the LLM to withhold. Generation: output PII filters, no training on
+user data, audit logs. Also: keep embeddings in-region; embeddings can leak content and
+should be treated as sensitive data.</p></div></details>
+<details class="qa"><summary><ol>
+<li>What is multi-query / query rewriting in RAG?</li>
+</ol></summary><div class="answer"><p>User queries are often short/ambiguous, so you use an LLM to rewrite or expand the query
+before retrieval: generate multiple paraphrases and merge results (multi-query), rewrite
+follow-ups into standalone questions using chat history (contextualization), or decompose a
+complex question into sub-questions (multi-hop). Cheap accuracy win, costs one extra LLM call.</p></div></details>
+<details class="qa"><summary><ol>
+<li>What is GraphRAG / when would plain RAG not be enough?</li>
+</ol></summary><div class="answer"><p>When answers require connecting entities across many documents ("which customers were
+affected by every incident in Q3?"), similarity search over chunks fails. GraphRAG extracts
+an entity/relationship graph at ingestion and traverses it at query time, optionally
+combining with vector search. Heavier to build — mention it as an option, not a default.</p></div></details>
+<hr />
+<h2>C. Agents, LangChain &amp; LangGraph</h2>
+<details class="qa"><summary><ol>
+<li>What is an AI agent vs a chain/pipeline?</li>
+</ol></summary><div class="answer"><p>The difference is who's in charge of the control flow. In a chain, I am — steps run in an
+order I fixed up front: retrieve, prompt, answer, done. In an agent, the <em>model</em> decides
+what happens next at runtime: it picks a tool, looks at the result, and loops until it's
+done (the ReAct pattern — reason, act, observe). My rule: if I can draw the workflow on a
+whiteboard, it's a chain — cheaper, faster, debuggable. Agents earn their complexity only
+when the path genuinely depends on the input.</p></div></details>
+<details class="qa"><summary><ol>
+<li>LangChain vs LangGraph — when each?</li>
+</ol><span class="qtag">(asked at Capgemini, very common)</span></summary><div class="answer"><p>LangChain: composable building blocks (loaders, splitters, retrievers, chains) — great for
+linear pipelines like RAG chatbots. LangGraph: builds stateful graphs with cycles,
+conditional edges, persistence and human-in-the-loop — for complex agent workflows
+(multi-turn support agents, multi-agent systems, retries/branching). Rule of thumb from real
+interviews: LangChain for RAG chatbots, LangGraph for agents that need loops or
+checkpointing.</p></div></details>
+<details class="qa"><summary><ol>
+<li>What is function calling / tool use?</li>
+</ol></summary><div class="answer"><p>You declare tools with JSON schemas; the model outputs a structured call
+(<code>{"name": "get_order", "arguments": {"id": "123"}}</code>) instead of prose; your code executes it
+and returns the result for the model to continue. It's how agents touch the real world.
+Key production details: validate arguments (the model can produce invalid ones), handle tool
+errors by feeding them back, and cap iteration count to prevent loops.</p></div></details>
+<details class="qa"><summary><ol>
+<li>How does memory work in LangChain/chatbots?</li>
+</ol></summary><div class="answer"><p>Short-term: the conversation itself — buffer memory (full history), window memory (last k
+turns), or summary memory (LLM-compressed history) to control tokens. Long-term: persist
+facts/preferences to an external store (DB or vector store) and retrieve them per session.
+LangGraph adds checkpointers that persist full graph state so a conversation can resume.</p></div></details>
+<details class="qa"><summary><ol>
+<li>What is MCP (Model Context Protocol)?</li>
+</ol></summary><div class="answer"><p>An open standard for connecting LLM apps to tools and data sources: servers expose
+tools/resources, any MCP-capable client can use them — decouples tool integrations from the
+app. Worth mentioning as the emerging alternative to hand-wiring every tool into your agent.</p></div></details>
+<details class="qa"><summary><ol>
+<li>How do you stop an agent from going off the rails?</li>
+</ol></summary><div class="answer"><p>Bound the loop (max steps/budget), constrain tools (least privilege, read-only where
+possible), validate tool inputs, require human approval for irreversible actions,
+add guardrails on inputs/outputs (prompt-injection and PII filters), log every step for
+audit, and eval agent trajectories offline before shipping changes.</p></div></details>
+<details class="qa"><summary><ol>
+<li>Design a customer-service agent for an outdoors company.</li>
+</ol><span class="qtag">(asked at Sierra)</span></summary><div class="answer"><p>Clarify scope (FAQs? order status? returns?). Architecture: intent detection → RAG over
+help-center docs for informational queries → tools (order lookup, returns API) for
+transactional ones → escalate-to-human path with conversation summary. Guardrails: only
+answer from context, PII handling, refusal policy. Evaluate with golden conversations +
+CSAT; start with the top-10 intents that cover 80% of volume.</p></div></details>
+<hr />
+<h2>D. Prompt engineering</h2>
+<details class="qa"><summary><ol>
+<li>What prompting techniques do you actually use?</li>
+</ol></summary><div class="answer"><p>System prompt with role + rules; few-shot examples for format-sensitive tasks;
+chain-of-thought ("think step by step") for reasoning; structured output (JSON schema /
+function calling) for machine-readable results; delimiters to separate instructions from
+data; and "answer only from the provided context, else say you don't know" for RAG.
+Iterate against a small eval set, not vibes.</p></div></details>
+<details class="qa"><summary><ol>
+<li>Zero-shot vs few-shot vs chain-of-thought?</li>
+</ol></summary><div class="answer"><p>Zero-shot: instruction only. Few-shot: include 2–5 input→output examples — the single
+biggest lever for format and edge-case behavior. CoT: ask the model to reason before
+answering — helps math/logic/multi-step tasks; for API models like o-series/reasoning models
+it's built in, so you ask for the final answer format instead.</p></div></details>
+<details class="qa"><summary><ol>
+<li>What is prompt injection? How do you defend?</li>
+</ol></summary><div class="answer"><p>Malicious content in user input or <em>retrieved documents</em> that overrides your instructions
+("ignore previous instructions and..."). Defenses (layered, none perfect): separate
+system/user roles, delimit and label untrusted content, instruction hierarchy, input/output
+filters, least-privilege tools (so hijacking can't do damage), and treat any
+model-with-tools as running untrusted code. In RAG, documents are an attack surface —
+mention that and you'll stand out.</p></div></details>
+<details class="qa"><summary><ol>
+<li>How do you get reliable JSON out of a model?</li>
+</ol></summary><div class="answer"><p>Prefer native structured output / function calling (schema-enforced) over "please return
+JSON". Add: JSON schema in the prompt, low temperature, retry-on-parse-failure with the
+error fed back, and a validator (Pydantic) as the last line. Never regex your way out.</p></div></details>
+<details class="qa"><summary><ol>
+<li>A prompt works in testing but fails for real users. What do you do?</li>
+</ol></summary><div class="answer"><p>Log real failures and cluster them; build a regression eval set from them; tighten prompt
+rules and add few-shot examples for failing clusters; consider input classification with
+different prompts per intent; and version prompts + run the eval suite before every change
+(prompt changes are deploys and deserve CI).</p></div></details>
+<hr />
+<h2>E. Evaluation, hallucination &amp; guardrails</h2>
+<details class="qa"><summary><ol>
+<li>How do you measure hallucination?</li>
+</ol><span class="qtag">(Deloitte, Anthropic-style)</span></summary><div class="answer"><p>Define it as unsupported claims relative to ground truth or provided context. Approaches:
+faithfulness scoring with RAGAS/LLM-as-judge (does each claim trace to a retrieved chunk?),
+citation coverage checks, self-consistency (sample k answers, check agreement), and a
+human-labeled audit set for the metric to be trusted. Track it as a dashboard metric, not a
+one-off.</p></div></details>
+<details class="qa"><summary><ol>
+<li>What is LLM-as-judge? Pitfalls?</li>
+</ol></summary><div class="answer"><p>Using a strong LLM to grade outputs against a rubric — scales far beyond human review.
+Pitfalls: position bias (prefers first answer — randomize order), self-preference (judging
+its own family's style), verbosity bias, and rubric drift. Mitigate with pairwise
+comparisons, calibrated rubrics, and periodic human agreement checks.</p></div></details>
+<details class="qa"><summary><ol>
+<li>What evaluation metrics do you know for GenAI?</li>
+</ol></summary><div class="answer"><p>Task-based: exact match/F1 (extraction), pass@k (code), accuracy on golden sets. Text
+similarity: BLEU/ROUGE (weak for open generation, say so), BERTScore/embedding similarity.
+RAG-specific: faithfulness, answer relevancy, context precision/recall (RAGAS). Production:
+latency (p50/p95), cost per query, escalation rate, thumbs-up rate. Benchmarks: MMLU etc. —
+note they suffer contamination and don't reflect your task.</p></div></details>
+<details class="qa"><summary><ol>
+<li>What are guardrails? Name concrete layers.</li>
+</ol></summary><div class="answer"><p>Input: prompt-injection/jailbreak detection, PII redaction, topic filters. Output: schema
+validation, toxicity/PII filters, groundedness checks, business rules ("never quote a
+price"). System: rate limits, cost caps, tool permissions, human-in-the-loop for high-risk
+actions. Tools: Guardrails AI, NeMo Guardrails, or lightweight custom validators — a small
+model or rules checking the big model.</p></div></details>
+<hr />
+<h2>F. Fine-tuning &amp; model internals (light, but asked)</h2>
+<details class="qa"><summary><ol>
+<li>What is LoRA / QLoRA?</li>
+</ol></summary><div class="answer"><p>LoRA freezes the base weights and trains small low-rank adapter matrices injected into
+attention layers — &lt;1% of parameters, so fine-tuning fits on modest GPUs and adapters are
+swappable per task. QLoRA does the same over a 4-bit quantized base model, cutting memory
+further (fine-tune a 7B on a single consumer GPU). Standard answer for "how would you
+fine-tune on a budget".</p></div></details>
+<details class="qa"><summary><ol>
+<li>When would you fine-tune instead of RAG/prompting?</li>
+</ol></summary><div class="answer"><p>Consistent style/format/persona, domain-specific jargon, structured output reliability,
+distilling a big model into a small cheap one, or latency (shorter prompts because behavior
+is baked in). Not for: injecting fresh/private facts (RAG), or anything a better prompt
+fixes first. Needs: hundreds–thousands of quality examples + an eval set before you start.</p></div></details>
+<details class="qa"><summary><ol>
+<li>SFT vs RLHF vs DPO — one line each.</li>
+</ol></summary><div class="answer"><p>SFT: supervised fine-tuning on instruction→response pairs; teaches the format of being
+helpful. RLHF: train a reward model from human preference pairs, then optimize the LLM
+against it with RL (PPO) — powerful but complex/unstable. DPO: skips the reward model and
+optimizes directly on preference pairs — simpler, now the common default for alignment.</p></div></details>
+<details class="qa"><summary><ol>
+<li>What is quantization?</li>
+</ol></summary><div class="answer"><p>Storing weights (and sometimes activations) in lower precision — FP16 → INT8/INT4 — to cut
+memory and speed inference with small quality loss. How 70B models run on single GPUs
+(GGUF/GPTQ/AWQ formats). Trade-off: aggressive quantization degrades reasoning-heavy tasks
+first.</p></div></details>
+<details class="qa"><summary><ol>
+<li>What is distillation?</li>
+</ol></summary><div class="answer"><p>Training a small "student" model on outputs (or logits) of a large "teacher" — you keep most
+task quality at a fraction of the serving cost. Common pattern: prototype with a frontier
+API, collect its outputs on your task, fine-tune a small open model, serve that.</p></div></details>
+<details class="qa"><summary><ol>
+<li>Explain GANs vs diffusion models vs transformers for generation.</li>
+</ol><span class="qtag">(MNC checklist question)</span></summary><div class="answer"><p>GANs: generator vs discriminator adversarial training — fast sampling, unstable training,
+mostly superseded for images. Diffusion: learn to iteratively denoise from noise — SOTA image
+quality (Stable Diffusion), slower sampling. Transformers: autoregressive next-token
+generation — dominant for text/code, and multimodal variants now span all modalities.</p></div></details>
+<hr />
+<h2>G. Scenario / project questions (prepare from YOUR resume)</h2>
+<details class="qa"><summary><ol>
+<li>Walk me through your RAG project end-to-end.</li>
+</ol><span class="qtag">(guaranteed)</span></summary><div class="answer"><p>Practice a 2-minute version covering: problem → ingestion (loader, chunking choice + why) →
+embeddings + vector DB (+ why that one) → retrieval strategy (k, filters, reranking) →
+prompt design → eval/iteration → deployment + cost. Then have one war story: something that
+broke (bad PDF parsing, hallucinated citations, latency) and how you diagnosed and fixed it.</p></div></details>
+<details class="qa"><summary><ol>
+<li>How would you reduce the cost of your LLM app?</li>
+</ol></summary><div class="answer"><p>Route easy queries to smaller/cheaper models; cache (exact + semantic caching of
+similar queries); trim prompts (shorter system prompt, fewer/lower-k chunks, summary memory);
+batch offline work; cap output tokens; monitor cost per query per feature so regressions
+are visible. Mention prompt caching for long static system prompts.</p></div></details>
+<details class="qa"><summary><ol>
+<li>How would you take your project from demo to production?</li>
+</ol></summary><div class="answer"><p>Add: authentication + rate limiting, streaming responses, observability (traces of
+prompt/chunks/latency/cost per request — LangSmith/Langfuse), an eval suite in CI, guardrails,
+retries with exponential backoff on the LLM API, feature flags for prompt/model versions,
+and a feedback button that feeds the eval set. Speak in checklists like this and you sound
+senior beyond 1 YOE.</p></div></details>
+<details class="qa"><summary><ol>
+<li>If your embedding model is updated/changed, what must you do?</li>
+</ol></summary><div class="answer"><p>Re-embed the entire corpus — vectors from different models live in different spaces and are
+not comparable. Plan for it: store raw chunks + metadata separately from vectors, version
+your index, and blue/green swap the new index after eval.</p></div></details>
+<details class="qa"><summary><ol>
+<li>How do you keep your knowledge current in this field?</li>
+</ol><span class="qtag">(soft but common)</span></summary><div class="answer"><p>Have a real answer: e.g. building side projects (name yours), following model/framework
+release notes, and one or two newsletters/communities. Interviewers use this to gauge genuine
+interest at junior level.</p></div></details></section>
+<section id="in-py" data-title="India · Python Round"><h1 class="page-title">India · Python Round</h1>
+<p>Indian GenAI L1 rounds mix <strong>easy Python programs</strong> (yes, really — even/odd and primes were
+asked at Capgemini for a GenAI role), <strong>Python language questions</strong>, <strong>pandas</strong>, and <strong>basic
+classical ML</strong>. Don't skip the easy stuff; fumbling it is an instant red flag.</p>
+<hr />
+<h2>A. Warm-up programs (asked verbatim in real loops)</h2>
+<details class="qa"><summary><ol>
+<li>Print even and odd numbers from a list.</li>
+</ol><span class="qtag">(Capgemini)</span></summary><div class="answer"><pre><code class="language-python">nums = [1, 2, 3, 4, 5, 6]
+evens = [n for n in nums if n % 2 == 0]
+odds  = [n for n in nums if n % 2 != 0]
+</code></pre></div></details>
+<details class="qa"><summary><ol>
+<li>Print prime numbers between 0 and 100.</li>
+</ol><span class="qtag">(Capgemini)</span></summary><div class="answer"><pre><code class="language-python">def is_prime(n):
+    if n &lt; 2:
+        return False
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+primes = [n for n in range(101) if is_prime(n)]
+</code></pre>
+<p>Mention the √n optimization unprompted; for many queries, mention Sieve of Eratosthenes (O(n log log n)).</p></div></details>
+<details class="qa"><summary><ol>
+<li>Check whether two strings are anagrams.</li>
+</ol><span class="qtag">(Capgemini, Infosys)</span></summary><div class="answer"><pre><code class="language-python">from collections import Counter
+def is_anagram(a, b):
+    return Counter(a) == Counter(b)   # O(n); sorted(a) == sorted(b) is O(n log n)
+</code></pre></div></details>
+<details class="qa"><summary><ol>
+<li>Reverse a string / check palindrome.</li>
+</ol></summary><div class="answer"><pre><code class="language-python">s[::-1]                      # reverse
+s == s[::-1]                 # palindrome
+</code></pre>
+<p>Follow-up they like: do it without slicing (two pointers).</p></div></details>
+<details class="qa"><summary><ol>
+<li>Remove duplicates from a list, preserving order.</li>
+</ol></summary><div class="answer"><pre><code class="language-python">list(dict.fromkeys(items))   # dicts preserve insertion order (3.7+)
+</code></pre></div></details>
+<details class="qa"><summary><ol>
+<li>Fibonacci (iterative + memoized).</li>
+</ol></summary><div class="answer"><pre><code class="language-python">def fib(n):
+    a, b = 0, 1
+    for _ in range(n):
+        a, b = b, a + b
+    return a
+</code></pre>
+<p>Say why naive recursion is O(2^n) and how <code>functools.lru_cache</code> fixes it.</p>
+<p><strong>7. Word frequency in a sentence / find the second largest number / FizzBuzz</strong> — all still
+appear. Practice writing them without a syntax stumble.</p></div></details>
+<hr />
+<h2>B. Python language questions</h2>
+<details class="qa"><summary><ol>
+<li>List vs tuple?</li>
+</ol></summary><div class="answer"><p>List: mutable, slightly more memory. Tuple: immutable, hashable (usable as dict key/set
+member), signals fixed structure. Immutability = safety + dict-key eligibility.</p></div></details>
+<details class="qa"><summary><ol>
+<li>Shallow vs deep copy?</li>
+</ol></summary><div class="answer"><p><code>copy.copy</code> copies the outer container only — nested objects are shared; <code>copy.deepcopy</code>
+recursively copies everything. Classic bug: mutating a nested list through a shallow copy.</p></div></details>
+<details class="qa"><summary><ol>
+<li>What are generators? Why use them?</li>
+</ol></summary><div class="answer"><p>Functions with <code>yield</code> producing values lazily one at a time. Constant memory for large
+streams (read a 10 GB file line by line), and they compose into pipelines. <code>(x*x for x in
+nums)</code> is a generator expression; iterating exhausts it.</p></div></details>
+<details class="qa"><summary><ol>
+<li>Explain decorators with an example.</li>
+</ol></summary><div class="answer"><p>A function that wraps another to add behavior without changing it:</p>
+<pre><code class="language-python">import functools, time
+def timed(fn):
+    @functools.wraps(fn)
+    def wrapper(*args, **kwargs):
+        t0 = time.time()
+        result = fn(*args, **kwargs)
+        print(f&quot;{fn.__name__} took {time.time() - t0:.2f}s&quot;)
+        return result
+    return wrapper
+</code></pre>
+<p>Real uses: logging, retries, auth checks, caching (<code>lru_cache</code>).</p></div></details>
+<details class="qa"><summary><ol>
+<li>What is the GIL?</li>
+</ol></summary><div class="answer"><p>A mutex letting only one thread execute Python bytecode at a time per process. Threads are
+fine for I/O-bound work (network calls release the GIL); use <code>multiprocessing</code> for CPU-bound
+work. Bonus: mention Python 3.13's experimental free-threaded build if asked what's changing.</p></div></details>
+<details class="qa"><summary><ol>
+<li><code>*args</code> / <code>**kwargs</code>? Mutable default argument bug?</li>
+</ol></summary><div class="answer"><p><code>*args</code> collects positional, <code>**kwargs</code> keyword arguments. The classic bug:
+<code>def f(x, acc=[])</code> — the list is created once at definition time and shared across calls;
+use <code>acc=None</code> + <code>acc = acc or []</code>.</p></div></details>
+<details class="qa"><summary><ol>
+<li>How does Python manage memory?</li>
+</ol></summary><div class="answer"><p>Reference counting frees objects at zero refs, plus a cyclic garbage collector for reference
+cycles. Objects live on a private heap; small-int and string interning exist — explains the
+<code>is</code> vs <code>==</code> gotcha.</p></div></details>
+<details class="qa"><summary><ol>
+<li><code>is</code> vs <code>==</code>?</li>
+</ol></summary><div class="answer"><p><code>==</code> compares values, <code>is</code> compares identity (same object). Use <code>is</code> only for <code>None</code>/
+sentinels.</p></div></details>
+<details class="qa"><summary><ol>
+<li>Exception handling best practice?</li>
+</ol></summary><div class="answer"><p>Catch specific exceptions, keep <code>try</code> blocks small, use <code>finally</code>/context managers for
+cleanup, raise with context (<code>raise X from e</code>). Catching bare <code>Exception</code> and passing
+silently is the anti-pattern they want you to call out.</p></div></details>
+<details class="qa"><summary><ol>
+<li>What is <code>async</code>/<code>await</code>? When does it help an LLM app?</li>
+</ol></summary><div class="answer"><p>Cooperative concurrency on one thread via an event loop — ideal for I/O-bound workloads like
+concurrent LLM/API calls (<code>asyncio.gather</code> to fan out embedding or completion requests).
+Doesn't speed up CPU-bound code.</p></div></details>
+<details class="qa"><summary><ol>
+<li>How do you call an external API properly in Python?</li>
+</ol></summary><div class="answer"><p><code>requests</code>/<code>httpx</code> with: timeouts (always), retries with exponential backoff + jitter on
+429/5xx, session reuse, and error handling on status + parse. For LLM APIs add: token/cost
+logging and streaming handling.</p></div></details>
+<hr />
+<h2>C. pandas / data handling (asked when the role touches data)</h2>
+<details class="qa"><summary><ol>
+<li><code>merge</code> vs <code>join</code> vs <code>concat</code>?</li>
+</ol></summary><div class="answer"><p><code>merge</code>: SQL-style joins on columns (how=inner/left/outer). <code>join</code>: convenience merge on
+index. <code>concat</code>: stack DataFrames along an axis. Know <code>how=</code> semantics cold.</p></div></details>
+<details class="qa"><summary><ol>
+<li>How do you handle missing values?</li>
+</ol></summary><div class="answer"><p>Inspect first (<code>df.isna().sum()</code>), then per column: drop (if few/random), impute
+(mean/median/mode or domain default), or flag with an indicator column. Never blind-fill;
+say the choice depends on <em>why</em> data is missing.</p></div></details>
+<details class="qa"><summary><ol>
+<li><code>groupby</code> example.</li>
+</ol></summary><div class="answer"><pre><code class="language-python">df.groupby(&quot;city&quot;)[&quot;amount&quot;].agg([&quot;sum&quot;, &quot;mean&quot;, &quot;count&quot;])
+</code></pre>
+<p>Follow-ups: <code>transform</code> (broadcast back to original shape) vs <code>agg</code> (reduce).</p></div></details>
+<details class="qa"><summary><ol>
+<li>Remove duplicate rows from a table / DataFrame.</li>
+</ol><span class="qtag">(Capgemini L2)</span></summary><div class="answer"><p><code>df.drop_duplicates(subset=["col1", "col2"], keep="first")</code>. In SQL:
+<code>ROW_NUMBER() OVER (PARTITION BY col1 ORDER BY updated_at DESC)</code> then keep rn=1 — they
+asked exactly this pattern (see also SCD below).</p></div></details>
+<details class="qa"><summary><ol>
+<li>What are Slowly Changing Dimensions (SCD)?</li>
+</ol><span class="qtag">(Capgemini L2 — data-flavored GenAI roles)</span></summary><div class="answer"><p>How warehouses track changing attributes. Type 1: overwrite (no history). Type 2: add a new
+row with validity dates/current flag (full history). Type 3: extra column for previous
+value. Type 2 is the default answer for "we need history".</p></div></details>
+<hr />
+<h2>D. Classical ML basics (still on every Indian checklist)</h2>
+<details class="qa"><summary><ol>
+<li>Precision vs recall? When do you optimize which?</li>
+</ol></summary><div class="answer"><p>Precision = TP/(TP+FP): of what I flagged, how much was right. Recall = TP/(TP+FN): of what
+existed, how much I caught. Fraud/cancer screening → recall (missing is costly); spam
+filter → precision (false alarms are costly). F1 balances both.</p></div></details>
+<details class="qa"><summary><ol>
+<li>What is an imbalanced dataset and how do you deal with it?</li>
+</ol><span class="qtag">(Capgemini)</span></summary><div class="answer"><p>Class ratios are skewed (e.g. 1% fraud) so accuracy is misleading. Fixes: better metrics
+(precision/recall, PR-AUC, F1), resampling (undersample majority / oversample minority /
+SMOTE), class weights in the loss, threshold tuning, and collecting more minority data.</p></div></details>
+<details class="qa"><summary><ol>
+<li>Linear vs logistic regression?</li>
+</ol></summary><div class="answer"><p>Linear predicts continuous values by fitting a line minimizing squared error. Logistic
+passes the linear output through a sigmoid to model class probability, trained with
+log-loss — classification, not regression, despite the name.</p></div></details>
+<details class="qa"><summary><ol>
+<li>Overfitting — detection and fixes?</li>
+</ol></summary><div class="answer"><p>Train metric ≫ validation metric. Fixes: more data, regularization (L1/L2, dropout),
+simpler model, early stopping, cross-validation for honest estimates. For LLM fine-tuning:
+fewer epochs, LoRA rank down, held-out eval set.</p></div></details>
+<details class="qa"><summary><ol>
+<li>What is gradient descent (intuition)?</li>
+</ol></summary><div class="answer"><p>Iteratively step weights in the direction that most reduces loss (negative gradient), step
+size = learning rate. Variants: batch/mini-batch/SGD; Adam adds momentum + per-parameter
+learning rates and is the default.</p></div></details>
+<details class="qa"><summary><ol>
+<li>Bias–variance trade-off?</li>
+</ol></summary><div class="answer"><p>Bias: error from oversimplified assumptions (underfit). Variance: error from sensitivity to
+training noise (overfit). Total error is minimized between the extremes; regularization and
+data size move the balance.</p></div></details>
+<details class="qa"><summary><ol>
+<li>Train/validation/test split — why three?</li>
+</ol></summary><div class="answer"><p>Train fits weights; validation tunes hyperparameters (and gets indirectly overfit through
+your choices); test is touched once for the final honest number. Leaking test into decisions
+invalidates it — say "data leakage" out loud, interviewers love it.</p></div></details></section>
+<section id="in-dsa" data-title="India · DSA/SDE Round"><h1 class="page-title">India · DSA/SDE Round</h1>
+<p>Product companies (Amazon, Swiggy, PhonePe, Flipkart, Kotak…) still run <strong>1–2 DSA rounds</strong>
+even for AI-adjacent SDE roles. Problems below were reported in real 2024–2026 Indian loops
+(LeetCode Discuss, Medium writeups). For each: the pattern to recognize, key insight, and
+complexity. Write the code yourself — that's the practice.</p>
+<h2>How these rounds are graded at 1 YOE</h2>
+<p>Communicate before coding: restate the problem, walk an example, state brute force, then
+optimize out loud. Interviewers explicitly report grading on <strong>correctness, clarity, and
+explaining the thought process before coding</strong> — a silent perfect solution scores worse than
+a narrated good one.</p>
+<hr />
+<h2>A. Arrays &amp; hashing</h2>
+<p><strong>1. Two Sum</strong> — hash map of value→index while scanning; O(n)/O(n). The warm-up everywhere.</p>
+<p><strong>2. Top K Frequent Elements</strong> <em>(asked with follow-up)</em> — Counter + heap of size k:
+O(n log k). Follow-up asked in real loops: <em>"what if the data doesn't fit in memory?"</em> →
+chunk the stream, partial counts per chunk (hash-partition so equal keys land together),
+merge counts, then heap; or count-min sketch for approximate counts.</p>
+<p><strong>3. 4Sum</strong> <em>(reported in DSA rounds)</em> — sort + fix two indices + two-pointer inner scan;
+O(n³). Dedup by skipping equal neighbors. Generalize the k-sum recursion if asked.</p>
+<p><strong>4. Minimum Swaps to Bring K Together</strong> <em>(reported)</em> — count elements ≤ K (window size),
+slide the window counting "bad" elements, answer = min bad over all windows; O(n).</p>
+<p><strong>5. Kadane's algorithm (max subarray)</strong> — running best-ending-here vs global best; O(n).
+Say the DP interpretation out loud.</p>
+<h2>B. Stack / monotonic patterns</h2>
+<p><strong>6. Valid Parentheses</strong> <em>(reported)</em> — stack of openers, match on close; O(n).</p>
+<p><strong>7. Asteroid Collision</strong> <em>(reported)</em> — stack; while top is moving right and current moves
+left, resolve collisions; O(n). Careful with equal sizes (both explode).</p>
+<p><strong>8. Online Stock Span</strong> <em>(reported, solved with monotonic stack)</em> — stack of (price, span);
+pop smaller-or-equal prices accumulating spans. Amortized O(1) per query. Know the
+monotonic-stack family: next greater element, daily temperatures, largest rectangle.</p>
+<p><strong>9. LRU Cache</strong> — hash map + doubly linked list for O(1) get/put; in Python mention
+<code>OrderedDict.move_to_end</code>. A staple for 1–3 YOE.</p>
+<h2>C. Dynamic programming</h2>
+<p><strong>10. House Robber</strong> <em>(reported, with space follow-up)</em> — dp[i] = max(dp[i-1], dp[i-2]+a[i]);
+the expected follow-up is optimizing O(n) space → two variables, O(1).</p>
+<p><strong>11. Climbing Stairs / Fibonacci-style</strong> — same recurrence family; recognize it fast.</p>
+<p><strong>12. Coin Change</strong> — unbounded knapsack; dp over amounts, O(amount·coins).</p>
+<p><strong>13. Longest Common Subsequence</strong> — 2-D dp; mention rolling-row space optimization.</p>
+<h2>D. Trees &amp; graphs</h2>
+<details class="qa"><summary><ol>
+<li>Build a binary tree from level-order input, then print specific traversals</li>
+</ol></summary><div class="answer"><p><em>(reported)</em> — queue-based construction; then BFS/DFS variants (zigzag, right view,
+level-order by depth). Practice recursive AND iterative inorder.</p>
+<p><strong>15. Graph BFS/DFS questions</strong> <em>(Swiggy 2025: graph + arrays rounds)</em> — islands count,
+rotten oranges (multi-source BFS), course schedule (cycle detection/topo sort), clone graph.
+BFS for shortest-steps problems, DFS/topo for dependency problems.</p>
+<p><strong>16. Lowest Common Ancestor</strong> — recursive: if root is p/q return it; combine left/right
+results.</p></div></details>
+<h2>E. Strings &amp; sliding window</h2>
+<p><strong>17. Longest Substring Without Repeating Characters</strong> — sliding window + last-seen map; O(n).</p>
+<p><strong>18. Group Anagrams</strong> — hash by sorted string or 26-count tuple; O(n·k log k).</p>
+<p><strong>19. String compression / run-length</strong> and <strong>first non-repeating character</strong> — easy but
+common screeners at services companies.</p>
+<hr />
+<h2>F. Machine coding round (the new trend)</h2>
+<p>Swiggy, PhonePe and similar now replace one talk round with a <strong>90–120 min "build a small
+library/service" round</strong> on your own laptop. Reported prompts: parking lot, splitwise,
+rate limiter, in-memory key-value store with TTL, snake &amp; ladder, cab booking.</p>
+<p>How to pass at 1 YOE:
+1. Spend 10 min on requirements + entity design <em>before</em> code. Confirm scope out loud.
+2. Working &gt; complete: a running happy path with 2 of 5 features beats 5 half-wired ones.
+3. Show engineering hygiene: small classes, an interface where extension is obvious
+   (e.g. <code>PricingStrategy</code>), a couple of unit tests, a README with run instructions.
+4. Don't gold-plate: no DB, no framework unless asked — in-memory maps are fine.</p>
+<h2>G. What to actually grind (1 YOE budget: ~6 weeks)</h2>
+<ul>
+<li>NeetCode 150 or Grokking patterns &gt; random problems. Prioritize: arrays/hashing, two
+  pointers, sliding window, stack, BFS/DFS, 1-D DP, heap.</li>
+<li>Redo every problem you fail after 3 days. Track patterns, not counts.</li>
+<li>2–3 timed mocks (Pramp/peers) — the delta between solving and solving-while-talking is
+  the whole game.</li>
+</ul></section>
+<section id="in-companies" data-title="India · Company Experiences"><h1 class="page-title">India · Company Experiences</h1>
+<p>Round-by-round reports reconstructed from candidate writeups on Glassdoor, Taro, Medium and
+LeetCode Discuss (links in <a href="../SOURCES.md">SOURCES.md</a>). Refresh this file with the
+<code>scrapers/</code> pipeline to pull newer LinkedIn/X experiences.</p>
+<hr />
+<h2>Capgemini — GenAI Engineer (2025, ~1 YOE, offer accepted)</h2>
+<p><strong>Process:</strong> 2 technical rounds (L1, L2) + HR. ~14 days end to end. Candidates rate it
+easy for 1 YOE.</p>
+<details class="qa"><summary>L1 (GenAI core + Python + projects):</summary><div class="answer"><ul>
+<li>What is RAG? Explain your current project's architecture.</li>
+<li>How do you deal with PDFs that contain images?</li>
+<li>Write a program to print even and odd numbers.</li>
+<li>Write a program for prime numbers.</li>
+<li>What is an imbalanced dataset and how do you handle it?</li>
+</ul></div></details>
+<details class="qa"><summary>L2 (deeper GenAI + data handling):</summary><div class="answer"><ul>
+<li>Types of chunking; how do you choose?</li>
+<li>Dealing with unstructured data (PDFs) in a pipeline.</li>
+<li>Slowly Changing Dimensions (SCD) — types and when each.</li>
+<li>How do you remove duplicates from a table?</li>
+</ul>
+<p><strong>Reported prep advice from the hired candidate:</strong> focus on LangChain, LangGraph, prompt
+engineering methods, and agents.</p>
+<p><strong>Coverage in this repo:</strong> every one of these is answered in
+<a href="01-genai-llm-core-questions.md"><code>01-genai-llm-core-questions.md</code></a> (Q11–13, 25) and
+<a href="02-python-and-coding-round.md"><code>02-python-and-coding-round.md</code></a> (Q1–3, 22–23, 25).</p></div></details>
+<hr />
+<h2>Infosys / TCS / Wipro / Accenture — Gen AI Engineer (lateral, 2025–26)</h2>
+<p><strong>Pattern across Glassdoor reports:</strong> nearly every lateral DS/ML/SDE loop now includes at
+least one dedicated GenAI round, regardless of the title you applied for.</p>
+<details class="qa"><summary>Recurring questions:</summary><div class="answer"><ul>
+<li>RAG end-to-end + hallucination management.</li>
+<li>Prompt engineering techniques; evaluation metrics for LLM outputs.</li>
+<li>LangChain vs LangGraph; agents and tool use.</li>
+<li>Working with unstructured data; OpenCV/pandas basics where the project involves them.</li>
+<li>Transformers/embeddings/vector DB concepts; GANs vs diffusion (checklist question).</li>
+<li>Fine-tuning: LoRA/QLoRA, when to fine-tune vs RAG.</li>
+<li>Easy DSA: primes 0–100, anagram check.</li>
+</ul>
+<p><strong>Trend note (2026):</strong> these interviews are notably harder than 2023–24 — awareness-level
+answers ("ChatGPT is an LLM") no longer pass; they expect you to have <em>built</em> a RAG app and
+to discuss chunking/evals/cost concretely.</p></div></details>
+<hr />
+<h2>Deloitte / EY — Gen AI Engineer (consulting-flavored)</h2>
+<ul>
+<li>RAG + hallucination + evaluation metrics fundamentals.</li>
+<li>More scenario-driven: "client has X documents and wants a chatbot — walk me through your
+  approach" (use the framework in <a href="../us-global/02-llm-system-design.md"><code>../us-global/02-llm-system-design.md</code></a>).</li>
+<li>Expect a client-communication angle in behavioral: explaining LLM limitations to
+  non-technical stakeholders.</li>
+</ul>
+<hr />
+<h2>Swiggy — SDE (Mar 2025)</h2>
+<p><strong>Process:</strong> 2 DSA rounds + 1 managerial. DSA on <strong>graphs and arrays</strong>. Also piloting
+machine-coding rounds (build a small library/service) like PhonePe.
+Prep: <a href="03-dsa-sde-round.md"><code>03-dsa-sde-round.md</code></a> sections D and F.</p>
+<h2>Amazon India — SDE-1 (2024–2026 reports)</h2>
+<ul>
+<li>DSA: DP (House Robber variant with O(1)-space follow-up), Top-K Frequent (+ "doesn't fit
+  in memory" follow-up), trees from level order, valid parentheses, asteroid collision,
+  min swaps K together, online stock span, 4Sum, DFS/BFS and string problems.</li>
+<li>Every round mixes in <strong>Leadership Principles</strong> behavioral questions — prepare 6–8 STAR
+  stories mapped to LPs (ownership, dive deep, deliver results).</li>
+</ul>
+<h2>Kotak — SDE-1</h2>
+<ul>
+<li>Bar-raiser style round reported first: mixed DSA + projects + behavioral.</li>
+</ul>
+<hr />
+<h2>Sarvam AI — ML/AI Engineer (fresher hired, no DSA)</h2>
+<p><strong>Process:</strong> a <strong>2.5-hour proctored practical round</strong> — e.g. build a Voice Activity
+Detection system — testing setup speed, documentation fluency, and debugging under
+pressure. Domain depth and shipped projects outweigh degrees and LeetCode.
+<strong>Lesson for AI-native startups:</strong> your portfolio (deployed RAG apps, agents) is the
+resume; rehearse building something end-to-end in one sitting with an unfamiliar library.</p>
+<hr />
+<h2>Cross-company patterns worth internalizing</h2>
+<ol>
+<li><strong>Two tech rounds + HR</strong> is the default MNC shape; product companies add DSA weight;
+   AI-native startups replace DSA with practical builds.</li>
+<li><strong>Project interrogation is 30–50% of technical time everywhere.</strong> The same five
+   follow-ups recur: why this stack, chunking choice, hallucination handling, eval method,
+   cost.</li>
+<li><strong>The floor is easy Python; the differentiator is production thinking</strong> — evals,
+   guardrails, cost — which most 1 YOE candidates can't discuss. You can.</li>
+<li><strong>Machine coding is spreading</strong> from product companies into AI roles.</li>
+</ol></section>
+<section id="in-hr" data-title="India · HR & Behavioral"><h1 class="page-title">India · HR & Behavioral</h1>
+<p>The HR round is rarely a filter, but a bad answer to "why are you leaving after one year?"
+can sink an otherwise-cleared loop, and everything you say about CTC/notice period is
+negotiation. Prepare these cold.</p>
+<hr />
+<h2>The questions you WILL get</h2>
+<details class="qa"><summary><ol>
+<li>Tell me about yourself.</li>
+</ol></summary><div class="answer"><p>60–90 seconds: current role + stack → one quantified achievement → why this role. E.g.:
+"I'm a backend/AI engineer with a year of experience building GenAI products — most recently
+a RAG-based document-chat app using LangChain, Gemini and Pinecone serving real users. I own
+features end-to-end from API design in NestJS to the retrieval pipeline. I'm looking for a
+team where AI is the core product, which is why this role caught my eye."</p></div></details>
+<details class="qa"><summary><ol>
+<li>Why are you switching within a year?</li>
+</ol><span class="qtag">(the 1-YOE landmine)</span></summary><div class="answer"><p>Never badmouth. Frame as running toward, not away: "I've learned a lot shipping X, but the
+AI work there is a side project, not the product. I want my next years compounding in a team
+that does this at production scale — that's exactly this role." If layoffs/instability are
+the real reason, one neutral sentence of fact is fine.</p></div></details>
+<details class="qa"><summary><ol>
+<li>Why our company?</li>
+</ol></summary><div class="answer"><p>Have 2 specifics: a product/tech-blog detail + how your skills map. Generic "great culture"
+answers are noticed.</p></div></details>
+<details class="qa"><summary><ol>
+<li>Current CTC / expected CTC?</li>
+</ol></summary><div class="answer"><p>Deflect expected as long as possible: "I'm sure your band for this role is fair — I'm more
+interested in fit; what range has been budgeted?" If forced, give a range whose <em>bottom</em> you
+would actually accept, anchored ~30–40% above current (typical 1-YOE switch hikes are
+30–50%; more if underpaid). Never state a number lower than you want and then negotiate up.</p></div></details>
+<details class="qa"><summary><ol>
+<li>Notice period?</li>
+</ol></summary><div class="answer"><p>Answer honestly (offers get rescinded for surprises). If it's 60–90 days, mention buyout
+willingness only if you mean it.</p></div></details>
+<details class="qa"><summary><ol>
+<li>Are you open to relocation / hybrid / office?</li>
+</ol></summary><div class="answer"><p>Decide before the call. A "no" late in the process wastes everyone's time; a fake "yes"
+wastes yours.</p></div></details>
+<details class="qa"><summary><ol>
+<li>Do you have other offers?</li>
+</ol></summary><div class="answer"><p>If yes, say so calmly without ultimatums — it speeds things up. If no: "I'm in process with
+a couple of companies but this role is my priority."</p></div></details>
+<hr />
+<h2>Behavioral (STAR) — prepare 5 stories from your 1 year</h2>
+<p>Structure every story: <strong>S</strong>ituation (1 line) → <strong>T</strong>ask (your responsibility) →
+<strong>A</strong>ction (what <em>you</em> did — "I", not "we") → <strong>R</strong>esult (quantified).</p>
+<p>Have one story each for:
+1. <strong>Hardest technical problem</strong> — e.g. debugging retrieval quality in production RAG.
+2. <strong>Conflict/disagreement</strong> — a design disagreement resolved with data or a prototype.
+3. <strong>Deadline pressure</strong> — what you cut, how you communicated, what shipped.
+4. <strong>A mistake</strong> — own it, show the fix AND the process change. Never "my weakness is
+   perfectionism."
+5. <strong>Initiative beyond your ticket</strong> — the side improvement nobody asked for that helped.</p>
+<p>Reported real questions at junior level: "What was your most unique and rewarding project?"
+(follow-ups: why, what impact, how did you measure it — have numbers), "How do you work
+under strict deadlines?", "How would you improve team culture as an IC?"</p>
+<hr />
+<h2>Questions YOU should ask</h2>
+<ul>
+<li>"What does the first 90 days look like for this role?"</li>
+<li>"How does the team evaluate LLM features before shipping?" <em>(signals maturity)</em></li>
+<li>"What's the growth path from this level?"</li>
+</ul>
+<h2>Red flags to listen for</h2>
+<p>Vague answers about the team you'd join, "we'll decide the project after you join" (bench
+risk at services companies), and pressure to accept same-day.</p></section>
+<section id="us-loop" data-title="US/Global · The Loop"><h1 class="page-title">US/Global · The Loop</h1>
+<p>Compiled from 2026 interview guides (Exponent, IGotAnOffer, KORE1) and reported questions at
+OpenAI, Anthropic, Scale AI, Sierra, Perplexity, Databricks, Meta, Google, TikTok
+(see <a href="04-company-loops.md"><code>04-company-loops.md</code></a> and <a href="../SOURCES.md"><code>../SOURCES.md</code></a>).</p>
+<h2>Typical loop (4–6 rounds)</h2>
+<ol>
+<li><strong>Recruiter screen</strong> (30 min) — more common for junior candidates: background, visa,
+   start date, light behavioral. Have your 90-second pitch and be able to name your stack.</li>
+<li><strong>Technical phone screen</strong> (45–60 min) — coding (LeetCode medium at big tech; LLM-API
+   live-coding at AI startups) or an ML/GenAI concept grill.</li>
+<li><strong>Onsite/virtual loop:</strong> a mix of</li>
+<li>coding round(s),</li>
+<li>AI/ML depth (transformers, RAG, fine-tuning, evals),</li>
+<li>applied/system design ("design a support chatbot on our docs"),</li>
+<li>behavioral (STAR; at Meta a dedicated 45-min round).</li>
+<li><strong>Team match / hiring-manager chat.</strong></li>
+</ol>
+<h2>The 2026 content shift</h2>
+<ul>
+<li>Interviews are <strong>60%+ GenAI-focused</strong>; classical ML (CNNs, gradient descent details) is
+  down to ~25% of technical rounds.</li>
+<li>Five clusters cover ~90% of loops: <strong>LLM/transformer basics · RAG · agents ·
+  prompting/evals · LLM system design.</strong></li>
+<li><strong>Big tech</strong> keeps 1–2 LeetCode rounds alongside AI rounds. <strong>AI startups and mid-size
+  companies</strong> increasingly replace algorithms with live coding against LLM APIs — build a
+  mini RAG or an agent tool-loop in 45 minutes.</li>
+<li>Interviewers reward candidates who "move between theory and production" — every concept
+  answer should end with a deployment/cost/eval implication.</li>
+</ul>
+<h2>Files</h2>
+<ul>
+<li><a href="01-genai-llm-questions.md"><code>01-genai-llm-questions.md</code></a> — deeper technical bank
+  (transformers, inference, fine-tuning, evals at production depth)</li>
+<li><a href="02-llm-system-design.md"><code>02-llm-system-design.md</code></a> — the design round, with worked answers</li>
+<li><a href="03-coding-rounds.md"><code>03-coding-rounds.md</code></a> — LeetCode + LLM-API live-coding formats</li>
+<li><a href="04-company-loops.md"><code>04-company-loops.md</code></a> — company-specific patterns and real questions</li>
+<li><a href="05-behavioral.md"><code>05-behavioral.md</code></a> — STAR at US companies, junior edition</li>
+</ul></section>
+<section id="us-core" data-title="US/Global · GenAI/LLM Depth"><h1 class="page-title">US/Global · GenAI/LLM Depth</h1>
+<p>US loops probe one level deeper than the India bank: internals, inference economics,
+fine-tuning mechanics, and evaluation rigor. Read
+<a href="../india/01-genai-llm-core-questions.md"><code>../india/01-genai-llm-core-questions.md</code></a> first —
+this file avoids repeating it.</p>
+<hr />
+<h2>A. Transformer &amp; model internals</h2>
+<details class="qa"><summary><ol>
+<li>Explain self-attention with a bit more precision.</li>
+</ol></summary><div class="answer"><p>Each token is projected into query, key and value vectors. Attention weights =
+softmax(QKᵀ/√d): each token's query scored against all keys; the output is the
+weight-averaged values. Multi-head attention runs this h times in parallel subspaces so
+different heads capture different relations (syntax, coreference…). Cost is O(n²) in
+sequence length — the reason long context is expensive and why FlashAttention/sliding-window
+variants exist.</p></div></details>
+<details class="qa"><summary><ol>
+<li>Why positional encodings?</li>
+</ol></summary><div class="answer"><p>Attention is permutation-invariant — without position info, "dog bites man" = "man bites
+dog". Classic: sinusoidal or learned absolute embeddings. Modern: RoPE (rotary) encodes
+relative position by rotating Q/K vectors, extrapolates better to longer contexts, and is
+what most current open models use.</p></div></details>
+<details class="qa"><summary><ol>
+<li>Encoder-only vs decoder-only vs encoder-decoder?</li>
+</ol></summary><div class="answer"><p>Encoder-only (BERT): bidirectional attention, best for understanding/classification/
+embeddings. Decoder-only (GPT/Llama): causal attention, generation — the dominant
+architecture. Encoder-decoder (T5): encode input fully, decode output — translation/
+summarization heritage. Know which family your embedding model vs your chat model belongs to.</p></div></details>
+<details class="qa"><summary><ol>
+<li>What is the KV cache?</li>
+</ol></summary><div class="answer"><p>During generation, each new token attends over all previous tokens' keys/values; caching
+them avoids recomputation, making generation O(n) per token instead of O(n²). Cost: memory
+grows with sequence length × layers × heads — the real constraint on batch size and long
+chats. Techniques: multi-query/grouped-query attention (share K/V across heads), paged
+attention (vLLM), KV-cache quantization.</p></div></details>
+<details class="qa"><summary><ol>
+<li>Prefill vs decode — why does time-to-first-token differ from tokens/sec?</li>
+</ol></summary><div class="answer"><p>Prefill processes the whole prompt in parallel (compute-bound) → determines time-to-first-
+token. Decode generates one token at a time (memory-bandwidth-bound) → determines
+tokens/sec. Long prompts hurt TTFT; long outputs hurt total latency. This vocabulary
+("prefill/decode, compute vs bandwidth bound") signals production experience.</p></div></details>
+<details class="qa"><summary><ol>
+<li>What limits LLM throughput and how do serving stacks fix it?</li>
+</ol></summary><div class="answer"><p>Decode is memory-bound, so GPUs idle without batching. Continuous (in-flight) batching —
+vLLM, TGI — admits new requests mid-flight instead of waiting for the batch to finish,
+raising throughput several-fold. Add paged KV-cache to reduce fragmentation, quantization to
+fit bigger batches, and speculative decoding (small draft model proposes tokens, big model
+verifies) for latency.</p></div></details>
+<details class="qa"><summary><ol>
+<li>What is Mixture of Experts (MoE)?</li>
+</ol></summary><div class="answer"><p>Replace each FFN with many "expert" FFNs plus a router that activates only 1–2 per token —
+huge parameter counts with a fraction of the compute per token (Mixtral, DeepSeek, GPT-4-
+class models). Trade-offs: memory holds <em>all</em> experts; routing/load-balancing complexity.</p></div></details>
+<hr />
+<h2>B. Fine-tuning &amp; alignment (deeper than "what is LoRA")</h2>
+<details class="qa"><summary><ol>
+<li>Walk through the full post-training pipeline of a chat model.</li>
+</ol></summary><div class="answer"><p>Pretraining (next-token on web scale) → SFT on instruction–response pairs (teaches format/
+helpfulness) → preference optimization: RLHF (reward model + PPO) or DPO (direct on
+preference pairs) for helpfulness/harmlessness. Optionally RLVR on verifiable tasks
+(math/code with checkable answers) for reasoning models.</p></div></details>
+<details class="qa"><summary><ol>
+<li>You have 5k support transcripts. Fine-tune or not?</li>
+</ol></summary><div class="answer"><p>This question is a judgment test — the wrong answer is "yes, let's fine-tune!" My actual
+first question back: what's failing with prompting plus RAG today? Then the uncomfortable
+truth: 5k raw transcripts is not 5k training examples. They need curating into ideal
+input→output pairs, and real human transcripts are full of mistakes you'd be teaching the
+model to imitate. If the gap turns out to be format or tone — SFT with LoRA on a curated
+subset, with before/after evals on a held-out set. If the gap is knowledge — that's RAG,
+and fine-tuning would've been an expensive detour. Either way I'd watch for catastrophic
+forgetting with a general regression suite.</p></div></details>
+<details class="qa"><summary><ol>
+<li>Full fine-tune vs LoRA vs prompt-tuning — memory math intuition.</li>
+</ol></summary><div class="answer"><p>Full FT: weights + gradients + optimizer states ≈ 4× model size in memory (7B ≈ 100+ GB) —
+needs multi-GPU. LoRA: freeze base, train ~0.1–1% adapter params — 7B fits on one 24 GB GPU;
+QLoRA (4-bit base) on consumer GPUs. Prompt-tuning trains only soft tokens — cheapest,
+weakest. This cost hierarchy is why LoRA is the industry default.</p></div></details>
+<details class="qa"><summary><ol>
+<li>What is catastrophic forgetting and how do you mitigate?</li>
+</ol></summary><div class="answer"><p>Fine-tuning on a narrow task degrades general abilities. Mitigate: LoRA (base frozen, less
+drift), lower LR/fewer epochs, mix general instruction data into the training set, and run a
+general-capability regression eval, not just your task metric.</p></div></details>
+<details class="qa"><summary><ol>
+<li>How would you evaluate whether your fine-tune actually improved things?</li>
+</ol></summary><div class="answer"><p>Held-out test set from the same distribution, defined metric before training (exact match,
+rubric score, pass rate), baseline = best prompted version of the base model (the comparison
+people skip), plus a general-ability regression suite and a blind human preference test on
+~100 samples. If the fine-tune only beats a <em>bad</em> prompt baseline, it wasn't worth it.</p></div></details>
+<hr />
+<h2>C. RAG &amp; retrieval at production depth</h2>
+<details class="qa"><summary><ol>
+<li>Embedding model choice — what actually matters?</li>
+</ol></summary><div class="answer"><p>Retrieval quality <em>on your domain</em> (MTEB is a proxy; build a 100-query eval set), dimension
+(storage/latency trade-off; Matryoshka embeddings allow truncation), max sequence length vs
+your chunk size, cost per million tokens, hosted vs open (privacy), and language support.
+Mention that switching models later forces a full re-embed, so eval before committing.</p></div></details>
+<details class="qa"><summary><ol>
+<li>HNSW vs IVF-PQ — when each?</li>
+</ol><span class="qtag">(the scaling follow-up)</span></summary><div class="answer"><p>HNSW: graph-based, high recall, low latency on CPU, memory-heavy — the default up to tens of
+millions of vectors. IVF+PQ: cluster + product-quantize, 10–50× memory compression, slight
+recall loss, GPU-friendly — for 100M+ vectors. Managed DBs hide this, but naming the
+trade-off (recall / latency / RAM) is the point.</p></div></details>
+<details class="qa"><summary><ol>
+<li>How do you keep an index fresh when documents change constantly?</li>
+</ol></summary><div class="answer"><p>Incremental upserts keyed by stable doc IDs + chunk hashes (re-embed only changed chunks),
+tombstone deletes, and metadata versioning. For bulk model/chunking changes: rebuild a
+shadow index, eval, then blue/green swap. Track index lag as a metric if freshness matters
+(support docs, pricing).</p></div></details>
+<details class="qa"><summary><ol>
+<li>Long-context models are getting cheap — is RAG dead?</li>
+</ol></summary><div class="answer"><p>I get why people say it, but no — the trade-off just moved. Stuffing 200k tokens into every
+query means paying for and waiting on all of them, every single call; recall in the middle
+of huge contexts still degrades; and there's no access control or citation story when you
+dump a whole corpus into a prompt. RAG keeps per-query cost flat and auditable. Where I've
+landed: use retrieval to <em>select</em>, and use the long context to be generous about how much
+you include — hybrid, not either/or.</p></div></details>
+<hr />
+<h2>D. Evaluation &amp; reliability (where US loops separate candidates)</h2>
+<details class="qa"><summary><ol>
+<li>"The model gives confident but wrong answers in a high-risk domain. Investigate and mitigate."</li>
+</ol><span class="qtag">(Anthropic-style)</span></summary><div class="answer"><p>Investigate: collect failures, cluster them (knowledge gaps? stale data? retrieval misses?
+reasoning errors?), check calibration (does stated confidence correlate with accuracy?).
+Mitigate by cluster: retrieval/grounding for knowledge gaps; abstention ("I don't know")
+tuning + confidence thresholds; citations with verification; human review gates for
+high-risk outputs; and an incident-style regression suite so fixed failures stay fixed.
+Never a single silver bullet — the layered answer is the pass.</p></div></details>
+<details class="qa"><summary><ol>
+<li>How do you build an eval suite for an LLM feature from scratch?</li>
+</ol></summary><div class="answer"><p>Start with 50–200 real (or realistic) inputs; define grading per case — exact match where
+possible, rubric + LLM-as-judge where open-ended, with human agreement spot-checks; wire it
+into CI so every prompt/model/retrieval change runs the suite; version everything; feed
+production failures back into the set weekly. Small-but-real beats big-but-synthetic.</p></div></details>
+<details class="qa"><summary><ol>
+<li>Offline evals look great; users complain. Why?</li>
+</ol></summary><div class="answer"><p>Distribution shift (eval set ≠ real queries), metric mismatch (faithfulness ≠ usefulness),
+multi-turn effects your single-turn evals miss, latency/UX problems users report as
+"quality", and novelty effects. Fix: sample real traffic into evals, add online metrics
+(thumbs, regenerate rate, escalation rate), and A/B test rather than trusting offline deltas.</p></div></details>
+<details class="qa"><summary><ol>
+<li>How would you A/B test an LLM change?</li>
+</ol></summary><div class="answer"><p>Randomize by user (not request — conversations must be consistent), pick a primary online
+metric (task completion, thumbs-up rate, escalation rate) + guardrail metrics (latency,
+cost, safety flags), run to significance, and keep the offline eval as a pre-gate so only
+promising variants reach the test.</p></div></details>
+<details class="qa"><summary><ol>
+<li>What are the main benchmark pitfalls?</li>
+</ol></summary><div class="answer"><p>Contamination (test data in training corpora), overfitting to public leaderboards, and the
+gap between benchmark tasks and your product's distribution. Use public benchmarks to
+shortlist models, then decide on your <em>own</em> eval set.</p></div></details>
+<hr />
+<h2>E. Safety, security &amp; operations</h2>
+<details class="qa"><summary><ol>
+<li>What attack surfaces does an LLM app have?</li>
+</ol></summary><div class="answer"><p>Direct prompt injection (user), <strong>indirect</strong> injection (retrieved docs, web pages, tool
+outputs), jailbreaks, data exfiltration via tools (model tricked into sending secrets),
+training-data leakage, and denial-of-wallet (adversarial long inputs). Defenses in depth:
+input/output filtering, instruction hierarchy, least-privilege tools, human approval for
+irreversible actions, rate/cost limits, logging. Cite OWASP LLM Top 10 to look prepared.</p></div></details>
+<details class="qa"><summary><ol>
+<li>Your LLM bill doubled month-over-month. Walk through your response.</li>
+</ol></summary><div class="answer"><p>Diagnose before optimizing — a doubled bill has four usual suspects: traffic actually grew
+(good news, different conversation), a prompt got bloated in a deploy, a retry loop went
+feral, or someone's abusing an endpoint. Per-feature token dashboards tell you which within
+the hour. Then optimize in order of leverage: caching (exact and semantic), slimming
+prompts and prompt-caching the static prefixes, routing easy intents to a small model,
+capping output tokens, moving offline work to batch APIs. And the step people skip: put an
+alert on cost-per-query so the <em>next</em> regression pages you instead of surprising finance.</p></div></details>
+<details class="qa"><summary><ol>
+<li>What do you log/monitor for an LLM feature in production?</li>
+</ol></summary><div class="answer"><p>Per request: prompt version, model, retrieved chunk IDs, tokens in/out, latency (TTFT +
+total), cost, guardrail triggers, user feedback signal. Aggregates: p95 latency, error/
+timeout rates, cost per query, eval-metric drift on sampled traffic. Tools: LangSmith/
+Langfuse/OpenTelemetry. Privacy: redact PII in logs, retention policy.</p></div></details>
+<details class="qa"><summary><ol>
+<li>When do you choose a small open model over a frontier API?</li>
+</ol></summary><div class="answer"><p>High volume + narrow task (classification, extraction, routing) where a fine-tuned 7–8B
+matches frontier quality at 10–100× lower cost; strict data-residency; latency floors
+(self-hosted edge). Prototype on the API, distill down once the task is stable and evals
+exist to prove parity.</p></div></details></section>
+<section id="us-design" data-title="US/Global · System Design"><h1 class="page-title">US/Global · System Design</h1>
+<p>The round that decides offers at AI companies. Below: a reusable answer framework, then the
+canonical questions (several reported verbatim from real loops) with worked outlines.</p>
+<hr />
+<h2>The framework (memorize this skeleton)</h2>
+<ol>
+<li><strong>Requirements (5 min)</strong> — users, query types, scale (QPS/concurrency), latency target,
+   accuracy/grounding bar, data sources + freshness, cost ceiling, safety/compliance.
+   <em>Asking about cost and evals up front is the junior→senior signal.</em></li>
+<li><strong>Data &amp; ingestion</strong> — sources, parsing (tables/images!), chunking, embeddings, index,
+   update pipeline.</li>
+<li><strong>Query path</strong> — preprocessing (rewrite, intent routing) → retrieval (hybrid + rerank) →
+   prompt assembly (system prompt, context, history) → model choice/routing → post-process
+   (citations, schema validation, guardrails).</li>
+<li><strong>Evaluation</strong> — golden set, RAGAS-style metrics, LLM-as-judge, online metrics, A/B.</li>
+<li><strong>Serving &amp; ops</strong> — streaming, caching, batching, fallbacks (model down → smaller model →
+   canned response), observability, rate/cost limits.</li>
+<li><strong>Cost estimate</strong> — tokens per query × price × traffic; name 2–3 levers (routing,
+   caching, prompt slimming).</li>
+<li><strong>Iterate on the interviewer's follow-ups</strong> — they will push on one axis (scale, quality,
+   or cost). Have depth ready on all three.</li>
+</ol>
+<hr />
+<h2>Q1. Design a customer-support chatbot over company documentation</h2>
+<p><em>(the canonical question: ~100+ concurrent users, &lt;2 s perceived latency, grounded — no
+hallucinations, analytics, cost-effective)</em></p>
+<ul>
+<li><strong>Ingestion:</strong> docs pipeline (Markdown/HTML/PDF; layout-aware parsing for tables), ~500-
+  token structure-aware chunks with overlap, metadata (product, version, URL), embeddings →
+  vector DB; nightly incremental sync keyed by doc hash.</li>
+<li><strong>Query path:</strong> rewrite follow-ups into standalone queries → hybrid retrieval (BM25 +
+  dense, top-30) → cross-encoder rerank to top-5 → prompt: "answer only from context, cite
+  sources, else offer escalation" → mid-size model for chat, small model for intent
+  routing.</li>
+<li><strong>Latency &lt;2 s:</strong> stream tokens (perceived latency = TTFT, so keep prompts lean), semantic
+  cache for repeated questions, keep reranker small, parallelize retrieval branches.</li>
+<li><strong>Grounding:</strong> citation requirement + post-hoc faithfulness check on sampled traffic;
+  "I don't know → human handoff" path with conversation summary.</li>
+<li><strong>Analytics:</strong> log query intent clusters, deflection rate (tickets avoided), thumbs
+  rate, escalations, cost/query.</li>
+<li><strong>Cost:</strong> ~1.5k prompt + 300 output tokens/query → estimate against model price; levers:
+  routing, caching, chunk budget.</li>
+</ul>
+<h2>Q2. Design an insurance-claims agent: ingest claim → approval decision, controlling token cost <em>(reported at Scale AI)</em></h2>
+<p>Key twist: it's a <strong>workflow, not a chatbot</strong> — push structure over free generation.
+- Pipeline stages (LangGraph-style state machine): extract structured fields from claim
+  docs (small model / OCR + schema-validated extraction) → retrieve policy clauses (RAG
+  over policy DB, filtered by policy ID) → rules engine for deterministic checks (coverage
+  dates, limits — <em>don't</em> pay an LLM to do arithmetic) → LLM only for judgment steps
+  (matching damage description to clause language) → decision with cited clauses →
+  <strong>human review gate</strong> above a risk/amount threshold (regulated domain — auto-approve only
+  low-risk, never auto-<em>deny</em> without review).
+- Token-cost control: small models for extraction/routing, big model only on the judgment
+  step, truncate retrieved clauses via reranking, batch processing, cache policy-level
+  context per claim batch.
+- Evals: labeled historical claims → decision accuracy, clause-citation correctness; audit
+  log per step (compliance).</p>
+<h2>Q3. Design a question-answering system over internal engineering docs <em>(reported)</em></h2>
+<p>Same skeleton as Q1; the differentiators interviewers push on:
+- <strong>Permissions:</strong> enforce doc ACLs in the retriever via metadata filters (user token →
+  allowed doc sets) — never post-filter with the LLM.
+- <strong>Freshness:</strong> wiki changes constantly → webhook-driven incremental re-index; index-lag
+  metric.
+- <strong>Heterogeneous sources:</strong> code, Confluence, Slack threads → per-source chunkers, source
+  tags in citations, possibly per-source indexes with a router.</p>
+<h2>Q4. Design a code-review assistant for pull requests</h2>
+<ul>
+<li>Context assembly is the hard part: diff + surrounding code (AST-aware context, not naive
+  chunks) + PR description + style guide.</li>
+<li>Structured output: line-anchored comments with severity, schema-validated.</li>
+<li>Precision &gt; recall: noisy nitpicks kill adoption — confidence thresholds, suppression
+  lists, learn from resolved/dismissed feedback.</li>
+<li>Eval: run on historical PRs; measure overlap with human reviewer comments + dismissal
+  rate in production.</li>
+</ul>
+<h2>Q5. Design the LLM gateway for a company (many teams, many models)</h2>
+<ul>
+<li>Single API proxy in front of all providers: auth per team, per-team budgets + rate
+  limits, model routing/fallback chains, centralized logging/tracing, prompt-injection and
+  PII filters as middleware, response caching, and usage dashboards (cost per team/feature).</li>
+<li>Why it exists: cost attribution, vendor portability, uniform safety — a very 2026
+  question as companies consolidate LLM spend.</li>
+</ul>
+<h2>Q6. Design a multi-agent research/report system</h2>
+<ul>
+<li>Planner agent decomposes the task → parallel worker agents (search, read, extract) with
+  tool access → synthesizer composes the report with citations → critic/verifier pass.</li>
+<li>Control: max steps + budget per agent, structured hand-offs (schemas, not prose),
+  checkpointing (LangGraph), human-in-the-loop before external actions.</li>
+<li>Evals on trajectories (did it use the right tools?) not just final output.</li>
+<li>Know when NOT to use agents: fixed workflow → pipeline is cheaper and more reliable.</li>
+</ul>
+<hr />
+<h2>Follow-up drills (they will ask at least two)</h2>
+<ul>
+<li><strong>"10× the traffic overnight — what breaks first?"</strong> → provider rate limits and cost;
+  answer: queueing + load shedding, caching layer, routing more traffic to small models,
+  pre-negotiated quota, autoscaled self-hosted overflow.</li>
+<li><strong>"How do you roll out a new model version safely?"</strong> → offline eval gate → shadow
+  traffic → canary % with online metrics → full rollout; keep instant rollback.</li>
+<li><strong>"Multi-turn memory at scale?"</strong> → windowed recent turns + rolling summary + long-term
+  facts in a store retrieved per turn; per-user token budget.</li>
+<li><strong>"What if a document contains a prompt-injection payload?"</strong> → treat retrieved text as
+  data: delimiters + instruction hierarchy, tool least-privilege, output filters, and
+  ingestion-time scanning of the corpus.</li>
+</ul></section>
+<section id="us-code" data-title="US/Global · Coding Rounds"><h1 class="page-title">US/Global · Coding Rounds</h1>
+<p>Two distinct formats now exist. Ask your recruiter which one you're getting — it's a fair
+question and changes your prep completely.</p>
+<hr />
+<h2>Format 1: LeetCode-style (big tech, still 1–2 rounds)</h2>
+<p>Junior loops run easy-mediums with strong emphasis on communication:
+- Arrays/hashing: two sum, top-k frequent (heap + streaming follow-up), group anagrams
+- Sliding window: longest substring without repeats, max window sums
+- Stack: valid parentheses, asteroid collision, monotonic-stack family (stock span)
+- DP: house robber (+O(1)-space follow-up), climbing stairs, coin change
+- Graphs/trees: BFS/DFS islands, course schedule, level-order construction, LCA
+- Design-lite: LRU cache</p>
+<p>Same grind list as <a href="../india/03-dsa-sde-round.md"><code>../india/03-dsa-sde-round.md</code></a> — the bar
+is identical; the behavioral bar is higher (narrate constantly, test your own code with an
+edge case before saying "done").</p>
+<hr />
+<h2>Format 2: LLM-API live coding (AI startups, mid-size companies)</h2>
+<p>45–75 minutes, your editor, often docs/internet allowed. Reported task shapes:</p>
+<details class="qa"><summary><ol>
+<li>"Build a mini-RAG over these 20 text files, then answer questions with citations."</li>
+</ol></summary><div class="answer"><p>What they grade: sensible chunking without a framework, correct cosine-similarity retrieval,
+a prompt that refuses out-of-context answers, and <em>working code fast</em>. Practice writing this
+in &lt;30 min with only <code>openai</code>/<code>google-genai</code> + numpy:
+embed chunks → cosine top-k → prompt with citations. No LangChain — they want to see you
+know what the framework does under the hood.</p></div></details>
+<details class="qa"><summary><ol>
+<li>"Build an agent that answers using these two tools (e.g. weather API + calculator)."</li>
+</ol></summary><div class="answer"><p>A tool-use loop: define JSON-schema tools, call model, execute returned tool calls, feed
+results back, loop until final answer, cap iterations. Handle: invalid arguments, tool
+errors fed back to the model, and parallel tool calls.</p></div></details>
+<details class="qa"><summary><ol>
+<li>"Here's a failing prompt/pipeline — debug it."</li>
+</ol></summary><div class="answer"><p>Reported traps: context silently truncated, retrieval returning related-but-useless chunks,
+temperature too high for extraction, prompt letting the model answer from world knowledge.
+Method matters: reproduce → log intermediate stages (what chunks? what final prompt?) →
+isolate the failing stage → fix → show a before/after eval on a few cases.</p></div></details>
+<details class="qa"><summary><ol>
+<li>"Implement X from scratch in numpy"</li>
+</ol><span class="qtag">(more common for ML-eng titles)</span></summary><div class="answer"><p>Softmax (with max-subtraction stability), cosine similarity, k-means, single-head attention
+(the QKᵀ/√d → softmax → ×V three-liner), BPE tokenization sketch, train/test split +
+accuracy without sklearn.</p>
+<p><strong>5. Take-homes:</strong> small RAG or agent app in ~4–8 hours. Winning moves at 1 YOE: a working
+end-to-end path, a README with design decisions + trade-offs, a tiny eval script (even 10
+cases), tests for the pure functions, and honest "what I'd do with more time".</p></div></details>
+<h3>Prep plan for Format 2</h3>
+<p>Rebuild your own projects' cores from scratch, no frameworks: one evening each for
+(a) mini-RAG, (b) tool-loop agent, (c) streaming chat with history management. Time
+yourself. That's 90% of what these rounds ask.</p></section>
+<section id="us-companies" data-title="US/Global · Company Loops"><h1 class="page-title">US/Global · Company Loops</h1>
+<p>Patterns and questions reported from real 2025–26 interviews (compilations claim sourcing
+from 100+ real interviews at these companies; links in <a href="../SOURCES.md">SOURCES.md</a>).
+Junior/1-YOE candidates most realistically enter these pipelines via internships-to-FT,
+new-grad reqs, or "AI Engineer I / Forward-Deployed" style roles.</p>
+<hr />
+<h2>AI-native companies</h2>
+<p><strong>Scale AI</strong> — reported: <em>"Design an insurance-claims agent that ingests claims and outputs
+an approval decision using RAG while controlling LLM/token cost."</em> Applied, cost-aware
+design (worked answer: <a href="02-llm-system-design.md"><code>02-llm-system-design.md</code></a> Q2). Expect
+strong emphasis on data quality — it's their business.</p>
+<p><strong>Sierra</strong> — reported: <em>"Explain how RAG works"</em> and <em>"Build a customer-service AI agent
+for a hypothetical outdoors company."</em> Agent design + practical build skill; they sell
+support agents, so the customer-service scenario is effectively their product.</p>
+<p><strong>Anthropic</strong> — reported (ML-eng flavored): <em>"A model gives confident but factually wrong
+answers in high-risk contexts — investigate and mitigate."</em> Safety/eval reasoning, layered
+mitigations (worked answer: <a href="01-genai-llm-questions.md"><code>01-genai-llm-questions.md</code></a> Q17).
+Engineering loops also include strong practical coding.</p>
+<p><strong>OpenAI / Perplexity / xAI</strong> — reported themes: inference optimization (batching, KV
+cache, speculative decoding), RAG/search quality (especially Perplexity — retrieval +
+freshness + citations), eval design, and solid systems coding. Perplexity questions lean
+toward "design our product": QA over the live web, ranking, hallucination control.</p>
+<p><strong>Databricks</strong> — LLM platform + data-engineering intersection: RAG over lakehouse data,
+fine-tuning/serving open models, Spark-adjacent scaling questions.</p>
+<h2>Big tech</h2>
+<p><strong>Meta (MLE)</strong> — coding rounds (LeetCode) + ML system design + a dedicated 45-min
+behavioral evaluating conflict, ambiguity, and results; prepare 4–5 quantified STAR
+stories. ML design leans product ("design feed ranking / harmful-content detection").</p>
+<p><strong>Google (MLE/AI roles)</strong> — coding bar remains high; ML rounds cover fundamentals
+(precision/recall trade-offs, regression families, gradient descent) + increasingly GenAI
+(Gemini-stack RAG, evals). Googleyness behavioral round.</p>
+<p><strong>Amazon</strong> — SDE loops with AI teams: LeetCode + Leadership Principles in every round;
+applied-science-adjacent roles add ML breadth.</p>
+<p><strong>Microsoft / TikTok / LinkedIn</strong> — reported junior questions include precision vs recall
+for fraud detection, ROC curves, BERT architecture, linear vs logistic regression — classical
+ML fundamentals still filter at screen stage; GenAI depth arrives onsite.</p>
+<hr />
+<h2>What to emphasize per company type</h2>
+<table>
+<thead>
+<tr>
+<th>Company type</th>
+<th>They're really testing</th>
+<th>Your 1-YOE angle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AI-native (Scale, Sierra, Perplexity)</td>
+<td>Can you ship LLM products under cost/quality constraints today</td>
+<td>Demo your RAG/agent projects; speak evals + cost fluently</td>
+</tr>
+<tr>
+<td>Big tech</td>
+<td>Raw CS bar + fundamentals + behavioral structure</td>
+<td>Grind DSA; map stories to their values (LPs, Meta axes)</td>
+</tr>
+<tr>
+<td>Enterprise/platform (Databricks, MSFT)</td>
+<td>LLM + data/infra intersection</td>
+<td>Bring the Postgres/Redis/Docker/AWS side of your stack into answers</td>
+</tr>
+</tbody>
+</table>
+<h2>Sourcing note</h2>
+<p>Company-tagged questions above are as reported publicly by candidates; loops change and
+vary by team. Use them as <strong>shape</strong>, not as a leaked question bank — and refresh with the
+<a href="../scrapers/"><code>../scrapers/</code></a> pipeline for the newest experiences.</p></section>
+<section id="us-behavioral" data-title="US/Global · Behavioral"><h1 class="page-title">US/Global · Behavioral</h1>
+<p>US behavioral rounds are structured and scored (Meta: a dedicated 45-minute round on
+conflict, ambiguity, and drive; Amazon: Leadership Principles in <em>every</em> round). At 1 YOE
+they don't expect leadership epics — they expect <strong>ownership, learning velocity, and
+quantified impact</strong> from the experience you do have.</p>
+<h2>The framework</h2>
+<p>STAR — Situation (1–2 lines), Task (your responsibility), Action (what <em>you</em> did; say "I"),
+Result (a number: latency cut, cost saved, users served, tickets deflected). Then one line
+of "what I learned/changed". Rambling context is the #1 junior failure mode.</p>
+<h2>Prepare these 6 stories (cover ~95% of questions)</h2>
+<ol>
+<li><strong>Most rewarding/unique project</strong> <em>(reported real question)</em> — expect follow-ups: why
+   that one, what impact, <strong>how did you measure it</strong>. Have the metric ready.</li>
+<li><strong>Technical challenge you fought through</strong> — e.g. RAG retrieval quality: describe the
+   debugging method, not just the fix.</li>
+<li><strong>Disagreement with a colleague/senior</strong> — resolved with data/prototype; you can commit
+   to decisions you disagreed with.</li>
+<li><strong>Deadline/ambiguity under pressure</strong> <em>(reported: "How do you work under strict
+   deadlines?")</em> — show prioritization + proactive communication, not heroics.</li>
+<li><strong>A real mistake</strong> — what broke, your part in it, the fix, the process change. Genuine
+   beats polished.</li>
+<li><strong>Improving the team beyond your ticket</strong> <em>(reported: "As an IC, how would you improve
+   team culture?")</em> — docs you wrote, a flaky test you fixed, onboarding help.</li>
+</ol>
+<h2>Junior-specific questions to expect</h2>
+<ul>
+<li>"Why AI engineering?" — tie to what you've <em>built</em>, not hype.</li>
+<li>"Tell me about a time you had to learn something quickly" — you're being hired for slope,
+  not intercept; have a concrete 2-week-ramp story.</li>
+<li>"How do you handle feedback?" — include a real example of acting on critical feedback.</li>
+<li>Recruiter-screen basics: start date, visa/work authorization, location, salary
+  expectations (US: you can ask for their range first; many states require posting it).</li>
+</ul>
+<h2>Signals that score well</h2>
+<p>Quantify everything; own failures without blaming; show you sought feedback; end stories
+with what changed in how you work. For Amazon specifically, label stories mentally by LP
+(Ownership, Dive Deep, Bias for Action, Deliver Results) — interviewers literally file them
+that way.</p></section>
+<section id="sources" data-title="Sources"><h1 class="page-title">Sources</h1>
+<p>Research compiled 2026-07-13 via web search. Company-tagged questions are as publicly
+reported by candidates; treat them as indicative, not guaranteed.</p>
+<h2>Question compilations (2026, AI/GenAI/LLM)</h2>
+<ul>
+<li>Adil Shamim — Every AI Engineer Interview Question You Need to Know in 2026 (from 100+ real interviews): https://adilshamim8.medium.com/every-ai-engineer-interview-question-you-need-to-know-in-2026-from-100-real-interviews-b5b7ae4b961a</li>
+<li>Adil Shamim — Top 20 RAG Interview Questions: https://adilshamim8.medium.com/top-20-rag-interview-questions-every-ai-engineer-should-know-3261313c4472</li>
+<li>DataCamp — Top 30 RAG Interview Questions and Answers for 2026: https://www.datacamp.com/blog/rag-interview-questions</li>
+<li>DataCamp — Top 36 Generative AI Interview Questions: https://www.datacamp.com/blog/genai-interview-questions</li>
+<li>Exponent — 45+ AI Engineer Interview Questions &amp; Answers (2026): https://www.tryexponent.com/blog/ai-engineer-interview-questions</li>
+<li>IGotAnOffer — 40+ Most Common AI Engineer Interview Questions: https://igotanoffer.com/en/advice/ai-engineer-interview</li>
+<li>KORE1 — AI Engineer Interview Questions 2026: https://www.kore1.com/ai-engineer-interview-questions-2026/</li>
+<li>LockedInAI — LLM Interview Questions &amp; Answers for Engineers 2026: https://www.lockedinai.com/blog/llm-interview-questions-answers-complete-guide-engineers</li>
+<li>Let's Data Science — 50 AI Engineer Interview Questions (2026 LLM Guide): https://letsdatascience.com/blog/50-llm-and-ai-engineer-interview-questions-for-2026</li>
+<li>Interview Coder — Top 50 AI Engineer Interview Questions (2026): https://www.interviewcoder.co/blog/ai-engineer-interview-questions</li>
+<li>UPenn Career Services — 45+ AI Engineer Interview Questions (2026): https://careerservices.upenn.edu/blog/2026/06/25/45-ai-engineer-interview-questions-answers-2026-guide/</li>
+<li>InterviewBit — Generative AI Interview Questions 2026: https://www.interviewbit.com/generative-ai-interview-questions-and-answers/</li>
+<li>ProjectPro — 50+ Most Asked Generative AI Interview Questions: https://www.projectpro.io/article/generative-ai-interview-questions-and-answers/1051</li>
+<li>Interview Baba — LangChain Interview Questions (production probes): https://interviewbaba.com/langchain-interview-questions/</li>
+<li>GitHub — amitshekhariitbhu/ai-engineering-interview-questions: https://github.com/amitshekhariitbhu/ai-engineering-interview-questions</li>
+<li>GitHub — andrewekhalel/MLQuestions: https://github.com/andrewekhalel/MLQuestions</li>
+</ul>
+<h2>India company experiences</h2>
+<ul>
+<li>Taro — Capgemini GenAI Engineer interview experience (Aug 2025, accepted offer): https://www.jointaro.com/interviews/companies/capgemini/experiences/genai-engineer-india-august-13-2025-accepted-offer-positive-ac5febe3/</li>
+<li>Glassdoor — Capgemini GenAI Engineer interview questions: https://www.glassdoor.co.in/Interview/Capgemini-GenAI-engineer-Interview-Questions-EI_IE3803.0,9_KO10,24.htm</li>
+<li>Glassdoor — Infosys Gen AI Engineer interview questions: https://www.glassdoor.co.in/Interview/Infosys-Gen-AI-Engineer-Interview-Questions-EI_IE7927.0,7_KO8,23.htm</li>
+<li>Glassdoor — Deloitte Gen AI Engineer interview questions: https://www.glassdoor.com/Interview/Deloitte-Gen-AI-Engineer-Interview-Questions-EI_IE2763.0,8_KO9,24.htm</li>
+<li>Medium (AI in Plain English) — TCS Gen AI Interview Questions 2026: https://ai.plainenglish.io/tcs-gen-ai-interview-questions-2026-real-questions-asked-by-candidates-36ced33dd72d</li>
+<li>Medium — Khushal Kumar, My Generative AI Engineer Interview Experience: https://kaysnotes.medium.com/my-generative-ai-engineer-interview-experience-got-hired-6b3f1affc4e9</li>
+<li>GetPersonalisedCV — Sarvam AI fresher ML engineer experience (no DSA, 2.5h build round): https://getpersonalisedcv.in/blog/sarvam-ai-interview-experience-84-lpa-ml-engineer</li>
+<li>Glassdoor — Swiggy Software Engineer interview questions: https://www.glassdoor.co.in/Interview/Swiggy-Software-Engineer-Interview-Questions-EI_IE952680.0,6_KO7,24.htm</li>
+<li>LeetCode Discuss — Amazon SDE-1 interview experience (India, 2026): https://leetcode.com/discuss/post/7612711/</li>
+<li>LeetCode Discuss — Amazon SDE-1 experience + prep strategy: https://leetcode.com/discuss/post/229125/amazon-sde-1-interview-experience-and-su-t4ty/</li>
+<li>Medium — Svastik Kanwar, Kotak SDE-1 interview experience: https://kanwar7svastik.medium.com/kotak-sde-1-interview-experience-a8d929ad9e43</li>
+<li>Medium — Piyush Aggarwal, interview experiences (Directi, Swiggy, Zomato…): https://piyush5807.medium.com/interview-experience-of-top-tech-companies-like-directi-swiggy-zomato-and-many-more-a6d8e597231b</li>
+<li>Learning Labb — Gen AI interview questions for freshers: https://learninglabb.com/gen-ai-interview-questions-for-freshers/</li>
+<li>Jobaaj — Real interview questions from TCS, Infosys &amp; Wipro in 2025: https://www.jobaaj.com/blog/real-interview-questions-from-tcs-infosys-wipro-in-2025</li>
+</ul>
+<h2>US / Global loops</h2>
+<ul>
+<li>Exponent — Meta MLE interview guide: https://www.tryexponent.com/guides/meta-machine-learning-engineer-interview</li>
+<li>Exponent — TikTok MLE interview guide: https://www.tryexponent.com/guides/tiktok-machine-learning-engineer-interview</li>
+<li>Exponent — MLE behavioral questions: https://www.tryexponent.com/questions?role=ml-engineer&amp;type=behavioral</li>
+<li>LinkJob — 2026 Google MLE interview walkthrough: https://www.linkjob.ai/interview-questions/google-machine-learning-engineer-interview/</li>
+<li>Glassdoor — Junior AI engineer / Junior MLE interview questions: https://www.glassdoor.com/Interview/junior-ai-engineer-interview-questions-SRCH_KO0,18.htm</li>
+<li>InterviewPal — 25 ML interview questions for 2026: https://blog.interviewpal.com/25-machine-learning-interview-questions-for-2026-and-how-senior-candidates-actually-answer-them/</li>
+</ul>
+<h2>LLM system design</h2>
+<ul>
+<li>System Design Handbook — Generative AI System Design Interview (2026): https://www.systemdesignhandbook.com/guides/generative-ai-system-design-interview/</li>
+<li>System Design Handbook — LLM System Design (2026): https://www.systemdesignhandbook.com/guides/llm-system-design/</li>
+<li>Educative — LLM System Design Explained: https://www.educative.io/blog/llm-system-design</li>
+<li>CrackingWalnuts — RAG/LLM platform at 10M queries/day: https://crackingwalnuts.com/post/rag-llm-platform-design</li>
+<li>DEV — How I Aced My LLM Interview: Building a RAG Chatbot: https://dev.to/mrzaizai2k/how-i-aced-my-llm-interview-building-a-rag-chatbot-2p6f</li>
+<li>DEV — Designing LLM Applications for Production: https://dev.to/matt_frank_usa/how-to-design-llm-applications-for-production-a-system-design-guide-2i3h</li>
+<li>Substack (WTF In Tech) — 7 Deep-Cut AI System Design Questions: https://bhavishyapandit9.substack.com/p/7-deep-cut-ai-system-design-interview</li>
+<li>Stackademic — LLM Interview Questions Every Software Engineer Should Know: https://blog.stackademic.com/llm-interview-questions-every-software-engineer-should-know-14838e03eb94</li>
+</ul>
+<h2>Market / hiring trends</h2>
+<ul>
+<li>Omnivoo — Hiring AI engineers in India, 2026 founder's guide: https://omnivoo.com/blog/hire-ai-engineers-india</li>
+<li>AIIIS Pune — How AI engineers are hired in India in 2026: https://aiiispune.org/blogs/how-ai-engineers-are-hired-india-2026/</li>
+<li>Campus Monk — Top 150 coding questions in service-company exams: https://campusmonk.in/top-150-coding-questions-asked-in-service-based-company-exams-2023-2025/</li>
+</ul>
+<h2>Apify actors (for the scrapers/)</h2>
+<ul>
+<li>apidojo/tweet-scraper (Tweet Scraper V2): https://apify.com/apidojo/tweet-scraper</li>
+<li>use-apify — Best Twitter/X scrapers on Apify (2026): https://use-apify.com/docs/best-apify-actors/best-twitter-scrapers</li>
+<li>use-apify — Best social media scrapers: https://use-apify.com/docs/best-apify-actors/best-social-media-scrapers</li>
+<li>Apify Store: https://apify.com/store</li>
+</ul></section>
+<footer style="color:var(--muted);font-size:.85rem;border-top:1px solid var(--line);padding-top:1rem">
+Built from the <a href="https://github.com/prayagtushar/prayagtushar/tree/main/interview-prep">interview-prep</a> question bank.
+Regenerate with <code>python interview-prep/site/build_site.py</code>.
+</footer>
+</main>
+</div>
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const root=document.documentElement;
+const saved=localStorage.getItem('theme');
+if(saved)root.dataset.theme=saved;
+else root.dataset.theme=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
+$('#theme-btn').onclick=()=>{root.dataset.theme=root.dataset.theme==='dark'?'light':'dark';
+  localStorage.setItem('theme',root.dataset.theme)};
+$('#menu-btn').onclick=()=>$('nav').classList.toggle('open');
+$$('.nav-group a').forEach(a=>a.onclick=()=>$('nav').classList.remove('open'));
+let allOpen=false;
+$('#toggle-btn').onclick=()=>{allOpen=!allOpen;
+  $$('details.qa:not(.hidden)').forEach(d=>d.open=allOpen);
+  $('#toggle-btn').textContent=allOpen?'Collapse all':'Expand all';};
+const cards=$$('details.qa'),sections=$$('main section');
+const norm=t=>t.toLowerCase();
+$('#search').oninput=e=>{
+  const q=norm(e.target.value.trim());
+  if(!q){cards.forEach(d=>{d.classList.remove('hidden');d.open=false});
+    sections.forEach(s=>s.classList.remove('hidden'));
+    $('#count').textContent='';return;}
+  let hits=0;
+  cards.forEach(d=>{const hit=norm(d.textContent).includes(q);
+    d.classList.toggle('hidden',!hit);d.open=hit;if(hit)hits++;});
+  sections.forEach(s=>{
+    const any=[...s.querySelectorAll('details.qa')].some(d=>!d.classList.contains('hidden'));
+    s.classList.toggle('hidden',!any);});
+  $('#count').textContent=hits+' match'+(hits===1?'':'es');
+};
+</script>
+</body>
+</html>

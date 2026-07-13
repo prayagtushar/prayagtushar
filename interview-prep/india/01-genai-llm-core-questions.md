@@ -9,10 +9,12 @@ written to be **spoken in 30–90 seconds** — expand only when the interviewer
 ## A. LLM fundamentals
 
 **1. What is an LLM and how does it work at a high level?**
-A large language model is a transformer neural network trained on massive text corpora to
-predict the next token. Pretraining gives it broad language/world knowledge; instruction
-tuning and RLHF align it to follow instructions. At inference it generates text one token at
-a time, each token conditioned on the prompt plus everything generated so far.
+At its core, it's a next-token predictor — a transformer trained on a massive slice of the
+internet to guess what comes next, over and over. That pretraining is where the language
+and world knowledge come from; instruction tuning and RLHF afterwards are what turn a raw
+text predictor into something that actually follows instructions. At inference it just
+generates one token at a time, each conditioned on the prompt plus everything it's written
+so far — which sounds too simple to work, and yet.
 
 **2. What is a token? Why do tokens matter in practice?**
 The unit models read/write — roughly ¾ of an English word (BPE/sentencepiece subwords).
@@ -39,11 +41,12 @@ search, clustering, deduplication, and retrieval for RAG. Note: use the same emb
 for documents and queries, and re-embed everything if you ever change models.
 
 **6. What is hallucination and why does it happen?**
-The model produces fluent but false content. It happens because LLMs are next-token
-predictors optimizing plausibility, not truth — when the answer isn't well represented in
-training data or context, it interpolates. Mitigations: ground with RAG, lower temperature,
-instruct "say 'I don't know' when the context lacks the answer", require citations, and add
-an answer-verification/eval step.
+It's when the model says something fluent, confident, and wrong. And it's not really a bug —
+the model optimizes for what's *plausible*, not what's *true*, so when the real answer
+isn't well represented in its training data or the prompt, it fills the gap with something
+that sounds right. You can't prompt it away entirely; you contain it: ground the model with
+RAG, keep temperature low, explicitly give it permission to say "I don't know," require
+citations, and put an eval step behind anything high-stakes.
 
 **7. Difference between pretraining, fine-tuning, and prompting?**
 Pretraining: train from scratch on web-scale data (only labs do this). Fine-tuning: further
@@ -52,11 +55,13 @@ change only the input; zero training. Default order in industry: prompt → few-
 RAG (for knowledge) → fine-tune (for behavior) — cheapest and most debuggable first.
 
 **8. RAG vs fine-tuning — when do you use which?**
-RAG injects *knowledge* at inference from an external store — right choice for facts that
-change, private data, and when you need citations. Fine-tuning changes *behavior* — tone,
-format adherence, domain jargon, tool-use patterns; it is poor at adding fresh facts and
-can't cite. Frequently the correct interview answer: "both — fine-tune for format, RAG for
-knowledge," and mention fine-tuning adds MLOps burden (versioning, re-training, eval).
+The one-liner I use: RAG changes what the model *knows*, fine-tuning changes how it
+*behaves*. Facts that change, private data, anything needing citations — that's RAG.
+Tone, format adherence, domain jargon, consistent structured output — that's fine-tuning,
+and it's genuinely bad at adding fresh facts, so don't try. Often the honest answer is
+"both — fine-tune for format, RAG for knowledge." Worth adding that fine-tuning drags in
+real MLOps burden: versioning, retraining, regression evals — which is why you exhaust
+prompting and RAG first.
 
 **9. What are open-weight vs closed models? Trade-offs?**
 Closed APIs (GPT/Gemini/Claude): best quality, zero infra, per-token cost, data leaves your
@@ -75,11 +80,14 @@ representations. This parallelism is why transformers scale so well on GPUs.
 ## B. RAG (the most-asked topic in Indian GenAI interviews)
 
 **11. What is RAG? Walk through the pipeline.** *(asked at Capgemini, Sierra, everywhere)*
-Retrieval-Augmented Generation grounds an LLM in external documents. Ingestion: load docs →
-chunk → embed → store vectors in a vector DB. Query: embed the user question → retrieve
-top-k similar chunks (optionally rerank) → stuff them into the prompt → LLM answers *from
-the provided context*, ideally with citations. Solves stale knowledge, private data, and
-hallucination reduction without retraining.
+RAG is how you get an LLM to answer from *your* documents instead of its training data.
+Two halves. Ingestion, done once per document: load it, split it into chunks, embed each
+chunk, store the vectors in a vector DB. Query time: embed the user's question, pull the
+top-k most similar chunks (rerank them if you care about quality), put them in the prompt,
+and tell the model to answer only from that context — ideally with citations. One pipeline
+solves three problems at once: stale knowledge, private data, and a big chunk of
+hallucination — all without touching the model's weights. I've built this twice, so happy
+to go as deep as you want on any stage.
 
 **12. What chunking strategies do you know? How do you choose chunk size?** *(Capgemini L2)*
 Fixed-size (N tokens with 10–20% overlap) — simple baseline. Recursive character splitting —
@@ -126,7 +134,8 @@ whole corpus. Pattern: retrieve top-50 cheaply, rerank to top-5, prompt with tho
 the highest-ROI RAG upgrades.
 
 **18. Your RAG system retrieves correctly but answers are still wrong. Debug it.** *(a favourite trap)*
-First clarify what "wrong" means and whether failures cluster — don't jump to a bigger model.
+The trap is reaching for a bigger model. Don't. My first move is asking what "wrong" means
+and whether the failures cluster — that one question usually impresses more than any fix.
 Buckets: (a) generation ignores context → tighten the prompt ("answer only from context"),
 lower temperature, check the context isn't being truncated; (b) chunks retrieved are
 *related* but don't contain the answer → chunking/granularity problem; (c) conflicting chunks
@@ -171,10 +180,12 @@ combining with vector search. Heavier to build — mention it as an option, not 
 ## C. Agents, LangChain & LangGraph
 
 **24. What is an AI agent vs a chain/pipeline?**
-A chain is a fixed DAG: steps execute in a predetermined order (retrieve → prompt → answer).
-An agent lets the LLM *decide* the control flow at runtime: it picks tools, observes results,
-and loops until done (ReAct pattern: Reason → Act → Observe). Use chains when the workflow is
-known — they're cheaper and more predictable; agents when the path depends on the input.
+The difference is who's in charge of the control flow. In a chain, I am — steps run in an
+order I fixed up front: retrieve, prompt, answer, done. In an agent, the *model* decides
+what happens next at runtime: it picks a tool, looks at the result, and loops until it's
+done (the ReAct pattern — reason, act, observe). My rule: if I can draw the workflow on a
+whiteboard, it's a chain — cheaper, faster, debuggable. Agents earn their complexity only
+when the path genuinely depends on the input.
 
 **25. LangChain vs LangGraph — when each?** *(asked at Capgemini, very common)*
 LangChain: composable building blocks (loaders, splitters, retrievers, chains) — great for
