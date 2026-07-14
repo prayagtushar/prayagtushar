@@ -4,7 +4,7 @@ ai engineer building llm-powered products — production rag pipelines with real
 multi-provider llm tooling, and the python apis behind them.
 currently software engineer @ metquay. india · open to remote.
 
-[w] [prayagtushar.xyz](https://prayagtushar.xyz)
+[w] [prayagtushar.xyz](https://prayagtushar.xyz) · [resume](https://prayagtushar.xyz/resume)
 [x] [x / twitter](https://x.com/prayagcode)
 [l] [linkedin](https://linkedin.com/in/prayagtushar)
 [m] [t.prayag.eng@gmail.com](mailto:t.prayag.eng@gmail.com)
@@ -37,11 +37,11 @@ currently software engineer @ metquay. india · open to remote.
 - **readora** — chat with your pdf. rag over gemini embeddings + pinecone, next.js 15, clerk, neon.
   [live](https://readora.prayagtushar.xyz/) · [repo](https://github.com/prayagtushar/readora)
 
-- **ask video.ai** — query youtube videos via langchain + gemini + pinecone.
-  [repo](https://github.com/prayagtushar/askVideo.ai)
-
 - **lumosai** — gemini chat assistant with persistent threads. mongodb + clerk.
   [live](https://lumos-maxima.vercel.app/)
+
+- **kestra todoist plugin** — 1,300+ loc contribution merged into the open-source
+  workflow orchestrator. [kestra](https://github.com/kestra-io/kestra)
 
 ---
 
