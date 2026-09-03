@@ -3,6 +3,7 @@
 applied ai engineer. i build agentic and rag systems end to end, then measure them:
 langgraph pipelines, hybrid retrieval over pgvector, and the eval harnesses that decide
 what ships. everything below is deployed and publicly demoable.
+
 currently software engineer @ metquay. india · open to remote.
 
 [w] [prayagtushar.xyz](https://prayagtushar.xyz) · [resume](https://prayagtushar.xyz/resume)
